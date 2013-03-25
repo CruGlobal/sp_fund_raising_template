@@ -1,0 +1,7 @@
+To Do:
+- Comment Styles
+
+Done:
+- Basic Typography
+- Widget Areas
+- Full Width Template
