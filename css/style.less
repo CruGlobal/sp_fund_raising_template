@@ -1,0 +1,226 @@
+/***** COLORS *****/
+
+  /* Solid */
+  @white: #ffffff; .white {color: @white;}
+  @black: #000000; .black {color: @black;}
+  @silver: #cccccc; .silver {color: @silver;}
+  @gray: #808080; .gray {color: @gray;}
+  @red: #EC1D3B;
+  @blue: #07B4B1;
+
+
+
+/***** REUSABLES *****/
+.zeroed {margin: 0; padding: 0; list-style: none;}
+.clearboth, .clearfix, .clr {clear: both;}
+.floatleft {float: left;}
+.floatright {float: right;}
+
+
+/***** SPECIALTY CSS *****/
+.opacity (@opacity) {-moz-opacity: @opacity; -webkit-opacity: @opacity; -ms-opacity: @opacity; -o-opacity: @opacity; opacity: @opacity;}
+.border-radius (@radius) {-moz-border-radius: @radius; -webkit-border-radius: @radius; -ms-border-radius: @radius; -o-border-radius: @radius; border-radius: @radius;}
+.box-shadow (@x: 1px, @y: 1px, @blur: 2px, @color: @black) {-moz-box-shadow: @arguments; -webkit-box-shadow: @arguments; -ms-box-shadow: @arguments; -o-box-shadow: @arguments; box-shadow: @arguments;}
+.box-shadow-inset (@x: 0, @y: 0, @blur: 5px, @color: @black) {-moz-box-shadow: @arguments inset; -webkit-box-shadow: @arguments inset; -ms-box-shadow: @arguments inset; -o-box-shadow: @arguments inset; box-shadow: @arguments inset;}
+.transition (@property, @speed: 200ms) {-moz-transition: @arguments; -webkit-transition: @arguments; -ms-transition: @arguments; -o-transition: @arguments; transition: @arguments;}
+.gradient-v (@color1, @color2) {background-color: @color1; background: -moz-linear-gradient(top, @color1, @color2); background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@color1), to(@color2)); background: -webkit-linear-gradient(top, @color1, @color2); background: -ms-linear-gradient(top, @color1, @color2); background: -o-linear-gradient(top, @color1, @color2);}
+.gradient-h (@color1, @color2) {background-color: @color1; background: -moz-linear-gradient(left, @color1, @color2); background: -webkit-gradient(linear, left top, right top, from(@color1), to(@color2)); background: -webkit-linear-gradient(left, @color1, @color2); background: -ms-linear-gradient(left, @color1, @color2); background: -o-linear-gradient(left, @color1, @color2);}
+
+
+/***** FONTS *****/
+@font-face {
+  font-family: 'Rockwell';
+  src: url('../fonts/rockwell-webfont.eot');
+  src: url('../fonts/rockwell-webfont.eot?iefix') format('eot'),
+       url('../fonts/rockwell-webfont.woff') format('woff'),
+       url('../fonts/rockwell-webfont.ttf') format('truetype'),
+       url('../fonts/rockwell-webfont.svg#webfontua9tSpTi') format('svg');
+       font-weight: normal;
+       font-style: normal;
+}
+
+body {line-height: 1.25; font-size: 14px /*16px*/; font-size: 14px; font-family: Helvetica, Arial, sans-serif;}
+
+h1, h2, h3, h4, h5, h6 {margin: 0 0 1em; line-height: 1.25; color: @blue; font-family: Rockwell;}
+header.pageheader h1 {font-size: 35px;}
+h1 {font-size: 20px;}
+h2 {font-size: 16px;}
+
+blockquote {margin: 1em 0 1em 4em;}
+
+ol {}
+ul {} /* possible alternate styles */
+ul.line li, ol.line li {border-bottom: #dddddd 1px solid; padding-bottom: .1em;}
+li {margin-bottom: .1em;}
+
+table {border-collapse: collapse; border: #dddddd 1px solid;}
+thead {}
+tbody {}
+tfoot{}
+th {text-align: left;}
+tr {}
+td {}
+th, td {border: #dddddd 1px solid; padding: 3px 6px;}
+
+p {margin: 0 0 1em;}
+p:last-of-type {margin-bottom: 0;}
+
+a {text-decoration: none; color: @blue;}
+a:hover {text-decoration: underline;}
+
+strong {font-weight: 700;}
+
+small {font-size: .85em;}
+pre {}
+address {font-style: inherit; display: inline;}
+sub {}
+sup {}
+
+hr {margin: 1em 0; border: #dddddd 1px solid; border-width: 0 0 1px 0; height: 1px;}
+
+.dropcap {float: left; display: inline-block; font-size: 3em; line-height: 1em; text-transform: uppercase; font-weight: 700; margin: 0; padding: 0 .15em .15em 0;}
+
+.top {float: right; background-color: #000000; color: #ffffff; line-height: 1em; border-radius: 5px; padding: 4px 6px; font-size: .85em;}
+
+#crumbs {
+  margin: 0; padding: 0;
+  li {
+    display: inline-block; font-weight: 700;
+    a {font-weight: 400;}
+  }
+}
+
+/***** LAYOUT *****/
+html, body {height: 100%; /* set min-width to equal pagewidth + side padding */}
+body {background: url(../images/noise.png) @white;}
+img {display: block;}
+
+/* Force footer to bottom - Set #masterwrapper function pushed() to TRUE to activate */
+.pushwrapper {
+  min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -150px;
+  .push {height: 150px;}
+}
+
+.row, .pagewidth {/* width */ margin: 0 auto;}
+.pagewidth {padding: 0 20px;}
+
+header#mainheader{
+  background: @white;
+  padding-top: 31px;
+  padding-bottom: 22px;
+  a {
+    display: inline-block;
+  }
+  #logo {
+    margin: 0;
+    span {position: absolute; left: -10000px;}
+  }
+  #crulogo {
+    text-align: right;
+  }
+}
+
+nav#mainnav {
+  background: url(../images/ribbon.jpg) repeat-x;
+  height: 84px;
+  line-height: 84px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  ul, li {.zeroed;}
+  ul {
+    text-align: left;
+    > li {
+      float: left; 
+      display: block; 
+      border: none; 
+      border-width: 0 0 0 1px; 
+      position: relative;
+      > a {
+        display: inline-block; 
+        padding: 0 15px;
+        background-color: none; 
+        line-height: 30px;
+        color: @black;
+        &:hover {.darken (@gray, 10%); text-decoration: none;}
+      }
+      ul.sub-menu {
+        position: absolute; top: 0; left: 0;
+        li {
+          text-align: left; margin: 0; display: block; background-color: @black50;
+          a {white-space: nowrap; display: block; font-size: 13px; line-height: 13px; padding: 8px 10px; text-transform: none; font-weight: normal;}
+          a:hover {background-color: @black25;}
+        }
+      }
+      &:last-of-type {border-right-width: 1px;}
+    }    
+  }  
+}
+
+div#mainwrapper {
+  padding-bottom: 30px;
+  article {}
+  aside {}
+}
+
+/***** FOOTER *****/
+
+#mainfooter {
+  background: url(../images/ribbon_skinny.jpg) repeat-x;
+  padding-top: 84px;  
+}
+
+
+/***** PAGES *****/
+
+/***** COMMENTS *****/
+#comments_wrap {
+  background: url(../images/ribbon_skinny.jpg) repeat-x 0 0, url(../images/pattern.gif);
+  padding: 84px 0 30px;
+}
+
+/***** WIDGETS *****/
+.widget {
+  padding-bottom: 1px; margin-bottom: 1em;
+  h3 {margin-bottom: .5em; font-size: 1.1em;}
+  ul, li {.zeroed;}
+  ul {
+    li {
+      padding-bottom: .25em;
+    }
+  }
+}
+
+
+/***** MISC *****/
+
+/* Alignment */
+.alignleft {float: left; margin: 0 1em 1em 0; display: inline-block;}
+.alignright {float: right; margin: 0 0 1em 1em;}
+.aligncenter {margin: 0 auto;}
+.center {text-align: center;}
+
+#searchform {
+  #s {
+	  .transition (width, 400ms);
+    &:focus {width: 150%;}
+  }
+}
+
+#pagination {
+  padding: 25px 0; border-top: @gray 1px solid; margin-top: 25px;
+  a:last-of-type {float: right;}
+}
+
+.box {
+  .box_interior { padding: 30px;}
+  border: 4px solid #D1D3D4;
+  border-radius: 20px;
+  background: #E6E7E8;
+  margin-bottom: 30px;
+}
+
+.social_bar {
+  background: @white;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+}
