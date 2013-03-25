@@ -42,7 +42,25 @@
 body {line-height: 1.25; font-size: 14px /*16px*/; font-size: 14px; font-family: Helvetica, Arial, sans-serif;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0 0 1em; line-height: 1.25; color: @blue; font-family: Rockwell;}
-header.pageheader h1 {font-size: 35px;}
+header.pageheader {
+  h1 {
+    font-size: 35px;
+    &.project_title {
+      margin-bottom: 5px;
+      color: @blue;
+      span.name {
+        font-size: 28px;
+      }
+    }
+  }
+  h6 {
+    font-family: Arial;
+    font-size: 14px;
+    color: @black;
+    font-weight: normal;
+    margin-bottom: 30px;
+  }
+}
 h1 {font-size: 20px;}
 h2 {font-size: 16px;}
 
@@ -167,6 +185,42 @@ div#mainwrapper {
 #mainfooter {
   background: url(../images/ribbon_skinny.jpg) repeat-x;
   padding-top: 84px;  
+  
+  #footerlinks {
+    margin-bottom: 2em;
+    ul.links {
+      display: inline-block;
+      vertical-align: top;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-right: 1.5em;
+      li {
+        list-style: none;
+        margin: 0 0 4px 0;
+        padding: 0;
+        font-size: 13px;
+        a {
+          color: @black;
+        }
+      }
+      .head {
+        a {
+        color: @red;
+        font-size: 14px;
+        font-family: Rockwell;
+        margin-bottom: 4px;
+        font-weight: normal;
+        }
+      }
+    }
+  }
+  .meta {
+    text-align: right;
+    font-family: Rockwell;
+    color: #666;
+    font-size: 13px;
+  }
 }
 
 
@@ -176,6 +230,36 @@ div#mainwrapper {
 #comments_wrap {
   background: url(../images/ribbon_skinny.jpg) repeat-x 0 0, url(../images/pattern.gif);
   padding: 84px 0 30px;
+  h3 {
+    display: none;
+  }
+  ol.commentlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li.comment {
+      list-style: none;
+      background: rgba(255,255,255,.8);
+      padding: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      .vcard {
+        display: inline;
+        font-style: normal;
+        .fn {font-style: normal; padding: 0; margin: 0; text-indent: 0;}
+        img {display: none;}
+        .says {display: none;}
+      }
+      .commentmetadata {
+        display: inline;
+        a {color: @black;}
+      }
+      
+      .reply {
+        display: none;
+      }
+    }
+  }
 }
 
 /***** WIDGETS *****/
@@ -217,10 +301,111 @@ div#mainwrapper {
   border-radius: 20px;
   background: #E6E7E8;
   margin-bottom: 30px;
+  &.legend {
+    min-height: 387px;
+  }
+  &.person {
+    background: @white;
+    .box_interior {padding: 20px;}
+  }
+  h2.price {
+    font-size: 35px;
+    color: @red;
+    margin-bottom: 5px;
+  }
+  span.price_subtext {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+  }
+  #donatecta {
+    width: 200px;
+    height: 52px;
+    line-height: 52px;
+    color: @white;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    background: orange;
+    font-weight: bold;
+    font-size: 25px;
+    text-transform: uppercase;
+    display: block;
+  }
+  .donor_graph {
+    background: #555;
+    display: block;
+    padding: 3px;
+    margin-top: 15px;
+    .donor_graph_inside {
+      width: 50%;
+      background: @blue;
+      height: 15px;
+    }
+  }
+  .donor_stats {
+    line-height: 20px;
+    vertical-align: middle;
+    border: 2px solid #bbb;
+    border-width: 2px 0;
+    padding: 8px 0;
+    margin: 60px 0 15px;
+    .num {
+      font-weight: bold;
+      vertical-align: middle;
+      font-size: 30px;
+      color: @blue;
+      font-family: Rockwell;
+    }
+  }
+  .person_brief {
+    clear: both;
+    display: block;
+    min-height: 90px;
+    margin-bottom: 15px;
+    .person_image {
+      border: 3px solid #999;
+      display: inline-block;
+      float: left;
+      margin: 0 10px 10px 0;
+    }
+    .person_name {
+      color: @blue;
+      font-size: 20px;
+      padding-top: 8px;
+      font-weight: bold;
+      font-family: "Rockwell";
+      margin-bottom: 8px;
+      line-height: 21px;
+    }
+    .person_subtext {}
+  }
+  .person_bio {
+    font-size: 13px;
+    pre {
+      font-style: normal;
+      font-family: Arial;
+    }
+  }
 }
 
 .social_bar {
   background: @white;
   padding: 12px 20px;
   margin-bottom: 30px;
+  height: 24px;
+  .social_links {
+    float: left;
+    padding-top: 1px;
+  }  
+  .social_url {
+    float: right;
+    border: 1px solid #999;
+    border-radius: 4px;
+    background: #eee;
+    width: 200px;
+    font-size: 12px;
+    padding: 5px 3px;
+    line-height: 12px;
+  }
 }

@@ -1,0 +1,393 @@
+.white { color:#fff; }
+.black { color:#000; }
+.silver { color:#ccc; }
+.gray { color:#808080; }
+.zeroed {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.clearboth, .clearfix, .clr { clear:both; }
+.floatleft { float:left; }
+.floatright { float:right; }
+@font-face {
+  font-family:'Rockwell';
+  src:url('../fonts/rockwell-webfont.eot');
+  src:url('../fonts/rockwell-webfont.eot?iefix') format('eot'), url('../fonts/rockwell-webfont.woff') format('woff'), url('../fonts/rockwell-webfont.ttf') format('truetype'), url('../fonts/rockwell-webfont.svg#webfontua9tSpTi') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+body {
+  line-height:1.25;
+  font-size:14px;
+  font-size:14px;
+  font-family:Helvetica, Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin:0 0 1em;
+  line-height:1.25;
+  color:#07b4b1;
+  font-family:Rockwell;
+}
+header.pageheader h1 { font-size:35px; }
+header.pageheader h1.project_title {
+  margin-bottom:5px;
+  color:#07b4b1;
+}
+header.pageheader h1.project_title span.name { font-size:28px; }
+header.pageheader h6 {
+  font-family:Arial;
+  font-size:14px;
+  color:#000;
+  font-weight:normal;
+  margin-bottom:30px;
+}
+h1 { font-size:20px; }
+h2 { font-size:16px; }
+blockquote { margin:1em 0 1em 4em; }
+ul.line li, ol.line li {
+  border-bottom:#ddd 1px solid;
+  padding-bottom:.1em;
+}
+li { margin-bottom:.1em; }
+table {
+  border-collapse:collapse;
+  border:#ddd 1px solid;
+}
+th { text-align:left; }
+th, td {
+  border:#ddd 1px solid;
+  padding:3px 6px;
+}
+p { margin:0 0 1em; }
+p:last-of-type { margin-bottom:0; }
+a {
+  text-decoration:none;
+  color:#07b4b1;
+}
+a:hover { text-decoration:underline; }
+strong { font-weight:700; }
+small { font-size:.85em; }
+address {
+  font-style:inherit;
+  display:inline;
+}
+hr {
+  margin:1em 0;
+  border:#ddd 1px solid;
+  border-width:0 0 1px 0;
+  height:1px;
+}
+.dropcap {
+  float:left;
+  display:inline-block;
+  font-size:3em;
+  line-height:1em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin:0;
+  padding:0 .15em .15em 0;
+}
+.top {
+  float:right;
+  background-color:#000;
+  color:#fff;
+  line-height:1em;
+  border-radius:5px;
+  padding:4px 6px;
+  font-size:.85em;
+}
+#crumbs {
+  margin:0;
+  padding:0;
+}
+#crumbs li {
+  display:inline-block;
+  font-weight:700;
+}
+#crumbs li a { font-weight:400; }
+html, body { height:100%; }
+body { background:url(../images/noise.png) #fff; }
+img { display:block; }
+.pushwrapper {
+  min-height:100%;
+  height:auto !important;
+  height:100%;
+  margin:0 auto -150px;
+}
+.pushwrapper .push { height:150px; }
+.row, .pagewidth { margin:0 auto; }
+.pagewidth { padding:0 20px; }
+header#mainheader {
+  background:#fff;
+  padding-top:31px;
+  padding-bottom:22px;
+}
+header#mainheader a { display:inline-block; }
+header#mainheader #logo { margin:0; }
+header#mainheader #logo span {
+  position:absolute;
+  left:-10000px;
+}
+header#mainheader #crulogo { text-align:right; }
+nav#mainnav {
+  background:url(../images/ribbon.jpg) repeat-x;
+  height:84px;
+  line-height:84px;
+  margin-bottom:40px;
+  text-transform:uppercase;
+}
+nav#mainnav ul, nav#mainnav li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+nav#mainnav ul { text-align:left; }
+nav#mainnav ul > li {
+  float:left;
+  display:block;
+  border:none;
+  border-width:0 0 0 1px;
+  position:relative;
+}
+nav#mainnav ul > li > a {
+  display:inline-block;
+  padding:0 15px;
+  background-color:none;
+  line-height:30px;
+  color:#000;
+}
+nav#mainnav ul > li > a:hover { text-decoration:none; }
+nav#mainnav ul > li ul.sub-menu {
+  position:absolute;
+  top:0;
+  left:0;
+}
+nav#mainnav ul > li ul.sub-menu li {
+  text-align:left;
+  margin:0;
+  display:block;
+  background-color:;
+}
+nav#mainnav ul > li ul.sub-menu li a {
+  white-space:nowrap;
+  display:block;
+  font-size:13px;
+  line-height:13px;
+  padding:8px 10px;
+  text-transform:none;
+  font-weight:normal;
+}
+nav#mainnav ul > li ul.sub-menu li a:hover { background-color:; }
+nav#mainnav ul > li:last-of-type { border-right-width:1px; }
+div#mainwrapper { padding-bottom:30px; }
+#mainfooter {
+  background:url(../images/ribbon_skinny.jpg) repeat-x;
+  padding-top:84px;
+}
+#mainfooter #footerlinks { margin-bottom:2em; }
+#mainfooter #footerlinks ul.links {
+  display:inline-block;
+  vertical-align:top;
+  list-style:none;
+  margin:0;
+  padding:0;
+  margin-right:1.5em;
+}
+#mainfooter #footerlinks ul.links li {
+  list-style:none;
+  margin:0 0 4px 0;
+  padding:0;
+  font-size:13px;
+}
+#mainfooter #footerlinks ul.links li a { color:#000; }
+#mainfooter #footerlinks ul.links .head a {
+  color:#ec1d3b;
+  font-size:14px;
+  font-family:Rockwell;
+  margin-bottom:4px;
+  font-weight:normal;
+}
+#mainfooter .meta {
+  text-align:right;
+  font-family:Rockwell;
+  color:#666;
+  font-size:13px;
+}
+#comments_wrap {
+  background:url(../images/ribbon_skinny.jpg) repeat-x 0 0, url(../images/pattern.gif);
+  padding:84px 0 30px;
+}
+#comments_wrap h3 { display:none; }
+#comments_wrap ol.commentlist {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+#comments_wrap ol.commentlist li.comment {
+  list-style:none;
+  background:rgba(255,255,255,0.8);
+  padding:10px;
+  margin-bottom:8px;
+  font-size:13px;
+}
+#comments_wrap ol.commentlist li.comment .vcard {
+  display:inline;
+  font-style:normal;
+}
+#comments_wrap ol.commentlist li.comment .vcard .fn {
+  font-style:normal;
+  padding:0;
+  margin:0;
+  text-indent:0;
+}
+#comments_wrap ol.commentlist li.comment .vcard img { display:none; }
+#comments_wrap ol.commentlist li.comment .vcard .says { display:none; }
+#comments_wrap ol.commentlist li.comment .commentmetadata { display:inline; }
+#comments_wrap ol.commentlist li.comment .commentmetadata a { color:#000; }
+#comments_wrap ol.commentlist li.comment .reply { display:none; }
+.widget {
+  padding-bottom:1px;
+  margin-bottom:1em;
+}
+.widget h3 {
+  margin-bottom:.5em;
+  font-size:1.1em;
+}
+.widget ul, .widget li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.widget ul li { padding-bottom:.25em; }
+.alignleft {
+  float:left;
+  margin:0 1em 1em 0;
+  display:inline-block;
+}
+.alignright {
+  float:right;
+  margin:0 0 1em 1em;
+}
+.aligncenter { margin:0 auto; }
+.center { text-align:center; }
+#searchform #s {
+  -moz-transition:width 400ms;
+  -webkit-transition:width 400ms;
+  -ms-transition:width 400ms;
+  -o-transition:width 400ms;
+  transition:width 400ms;
+}
+#searchform #s:focus { width:150%; }
+#pagination {
+  padding:25px 0;
+  border-top:#808080 1px solid;
+  margin-top:25px;
+}
+#pagination a:last-of-type { float:right; }
+.box {
+  border:4px solid #d1d3d4;
+  border-radius:20px;
+  background:#e6e7e8;
+  margin-bottom:30px;
+}
+.box .box_interior { padding:30px; }
+.box.legend { min-height:387px; }
+.box.person { background:#fff; }
+.box.person .box_interior { padding:20px; }
+.box h2.price {
+  font-size:35px;
+  color:#ec1d3b;
+  margin-bottom:5px;
+}
+.box span.price_subtext {
+  font-weight:bold;
+  font-size:14px;
+  display:block;
+}
+.box #donatecta {
+  width:200px;
+  height:52px;
+  line-height:52px;
+  color:#fff;
+  text-align:center;
+  margin:0 auto;
+  margin-top:20px;
+  background:orange;
+  font-weight:bold;
+  font-size:25px;
+  text-transform:uppercase;
+  display:block;
+}
+.box .donor_graph {
+  background:#555;
+  display:block;
+  padding:3px;
+  margin-top:15px;
+}
+.box .donor_graph .donor_graph_inside {
+  width:50%;
+  background:#07b4b1;
+  height:15px;
+}
+.box .donor_stats {
+  line-height:20px;
+  vertical-align:middle;
+  border:2px solid #bbb;
+  border-width:2px 0;
+  padding:8px 0;
+  margin:60px 0 15px;
+}
+.box .donor_stats .num {
+  font-weight:bold;
+  vertical-align:middle;
+  font-size:30px;
+  color:#07b4b1;
+  font-family:Rockwell;
+}
+.box .person_brief {
+  clear:both;
+  display:block;
+  min-height:90px;
+  margin-bottom:15px;
+}
+.box .person_brief .person_image {
+  border:3px solid #999;
+  display:inline-block;
+  float:left;
+  margin:0 10px 10px 0;
+}
+.box .person_brief .person_name {
+  color:#07b4b1;
+  font-size:20px;
+  padding-top:8px;
+  font-weight:bold;
+  font-family:"Rockwell";
+  margin-bottom:8px;
+  line-height:21px;
+}
+.box .person_bio { font-size:13px; }
+.box .person_bio pre {
+  font-style:normal;
+  font-family:Arial;
+}
+.social_bar {
+  background:#fff;
+  padding:12px 20px;
+  margin-bottom:30px;
+  height:24px;
+}
+.social_bar .social_links {
+  float:left;
+  padding-top:1px;
+}
+.social_bar .social_url {
+  float:right;
+  border:1px solid #999;
+  border-radius:4px;
+  background:#eee;
+  width:200px;
+  font-size:12px;
+  padding:5px 3px;
+  line-height:12px;
+}

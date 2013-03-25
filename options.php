@@ -112,17 +112,17 @@ function optionsframework_options() {
 	
 	$options[] = array(
 		'name' => __('Designation Number', 'options_framework_theme'),
-		'desc' => __('This is a number', 'options_framework_theme'),
+		'desc' => __('', 'options_framework_theme'),
 		'id' => 'spkick_designation',
-		'std' => '1234567',
+		'std' => '',
 		'class' => 'mini',
 		'type' => 'text');
 		
   $options[] = array(
 		'name' => __('Motivation Code', 'options_framework_theme'),
-		'desc' => __('This is a number', 'options_framework_theme'),
+		'desc' => __('', 'options_framework_theme'),
 		'id' => 'spkick_motivation',
-		'std' => '1234567',
+		'std' => '',
 		'class' => 'mini',
 		'type' => 'text');
 	

@@ -24,6 +24,7 @@
 
 <!-- WP HEAD INFO -->
 <?php wp_enqueue_script("jquery"); ?>
+<script src="<?php bloginfo('template_url'); ?>/js/facebook_user_id.js" type="text/javascript"></script>
 <?php wp_head(); ?>
 <!-- END WP HEAD INFO -->
 
