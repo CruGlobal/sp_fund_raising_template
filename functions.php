@@ -1,8 +1,18 @@
 <?php
-
+if (!empty($_GET['amt'])) {
+	$options = get_option('optionsframework');
+	if (isset($options['id'])) {
+		$pieces = get_option($options['id']);
+		if (!isset($pieces[$options['id'] . '_current_amount'])) {
+			$pieces[$options['id'] . '_current_amount'] = 0;
+		}
+		$pieces[$options['id'] . '_current_amount'] += (int) $_GET['amt'];
+		update_option($options['id'], $pieces);
+	}
+}
 
 // remove the generator from the head
-remove_action('wp_head', 'wp_generator'); 
+remove_action('wp_head', 'wp_generator');
 
 
 
@@ -76,7 +86,7 @@ function affari_the_breadcrumb() {
       }
       echo '</li>';
     } elseif (is_page()) {
-      if($post->post_parent) { 
+      if($post->post_parent) {
         $anc = get_post_ancestors($post->ID);
         foreach ($anc as $ancestor) {
           $output = '<li>'.get_the_title($ancestor).'</li>'.$output;
@@ -87,7 +97,7 @@ function affari_the_breadcrumb() {
         echo the_title();
         echo '</li>';
       }
-    }  
+    }
   }
   elseif (is_tag()) {single_tag_title();}
   elseif (is_day()) {echo '<li>Archive for ' . the_time('F jS, Y') . '</li>';}
@@ -105,7 +115,7 @@ if ( !function_exists( 'optionsframework_init' ) ) {
 	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
 }
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'project_image', 608, 362, true ); //300 pixels wide (and unlimited height)
 	add_image_size( 'square', 85, 85, true ); //(cropped)
 }

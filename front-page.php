@@ -37,7 +37,7 @@
     <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
       <div class="hero">
       <?php if (of_get_option('spkick_video_url', 'Not Set')) : ?>
-        <iframe width="608" height="342" src="<?php echo of_get_option('spkick_video_url', 'Not Set'); ?>" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="<?php echo of_get_option('spkick_video_url', 'Not Set'); ?>" frameborder="0" allowfullscreen></iframe>
       <?php elseif (of_get_option('spkick_project_image', 'Not Set')) : ?>
         <?php 
           $img_url = of_get_option('spkick_project_image', 'Not Set');
@@ -94,7 +94,6 @@
         
         
         <div class="donor_stats">
-          <span class="num">45</span> donors &nbsp;
           <span class="num">
             <?php
              $now = time(); // or your date as well
@@ -103,6 +102,11 @@
              echo floor($datediff/(60*60*24));
             ?>
           </span> days left
+        </div>
+        <div class="donor_endDate">
+          <span>Goal Date</span>
+          <?php echo date("F j, Y", strtotime(of_get_option('spkick_deadline'))); ?>
+          <?php //echo of_get_option('spkick_deadline'); ?>
         </div>
         
         <div class="cta">

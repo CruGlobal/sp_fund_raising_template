@@ -10,9 +10,16 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
           <header class="entryheader">
-            <h1 class="entrytitle"><?php the_title(); ?></h1>
+            <h1 class="pagetitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
           </header>
           <?php the_content(); ?>
+          
+          <div class="meta">
+            <?php the_date(); ?> | 
+            <a href="<?php comments_link(); ?>">
+              <?php comments_number( 'no responses', 'one response', '% responses' ); ?>.
+            </a>
+          </div>
         </article>
 <?php endwhile; else: ?>
         <article <?php post_class() ?> id="post-<?php the_ID(); ?>">

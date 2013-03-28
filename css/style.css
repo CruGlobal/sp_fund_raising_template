@@ -109,13 +109,6 @@ hr {
 html, body { height:100%; }
 body { background:url(../images/noise.png) #fff; }
 img { display:block; }
-.pushwrapper {
-  min-height:100%;
-  height:auto !important;
-  height:100%;
-  margin:0 auto -150px;
-}
-.pushwrapper .push { height:150px; }
 .row, .pagewidth { margin:0 auto; }
 .pagewidth { padding:0 20px; }
 header#mainheader {
@@ -217,6 +210,7 @@ div#mainwrapper { padding-bottom:30px; }
 #comments_wrap {
   background:url(../images/ribbon_skinny.jpg) repeat-x 0 0, url(../images/pattern.gif);
   padding:84px 0 30px;
+  clear:both;
 }
 #comments_wrap h3 { display:none; }
 #comments_wrap ol.commentlist {
@@ -225,11 +219,18 @@ div#mainwrapper { padding-bottom:30px; }
   padding:0;
 }
 #comments_wrap ol.commentlist li.comment {
+  clear:both;
+  text-indent:0px;
   list-style:none;
   background:rgba(255,255,255,0.8);
   padding:10px;
   margin-bottom:8px;
+  font-size:11px;
+}
+#comments_wrap ol.commentlist li.comment p {
   font-size:13px;
+  margin-bottom:0px;
+  margin-top:.5em;
 }
 #comments_wrap ol.commentlist li.comment .vcard {
   display:inline;
@@ -246,6 +247,50 @@ div#mainwrapper { padding-bottom:30px; }
 #comments_wrap ol.commentlist li.comment .commentmetadata { display:inline; }
 #comments_wrap ol.commentlist li.comment .commentmetadata a { color:#000; }
 #comments_wrap ol.commentlist li.comment .reply { display:none; }
+#comments_wrap form {
+  text-indent:0px;
+  clear:both;
+  background:rgba(255,255,255,0.8);
+  padding:10px;
+  border-top:4px solid #07b4b1;
+}
+#comments_wrap form p { margin-bottom:.5em; }
+#comments_wrap form textarea, #comments_wrap form input[type=text] {
+  border:none;
+  padding:7px 5px;
+  font-size:13px;
+  color:#555;
+}
+#comments_wrap form textarea { height:60px; }
+#comments_wrap form input[type=submit] {
+  width:auto;
+  height:40px;
+  line-height:40px;
+  color:#fff;
+  text-align:center;
+  margin-top:7px;
+  background:orange;
+  font-weight:bold;
+  font-size:14px;
+  text-transform:uppercase;
+  display:block;
+  border:none;
+  padding:0 20px;
+}
+#mainwrapper #comments_wrap {
+  background:none;
+  padding:0px;
+  display:block;
+  border-top:3px solid #ccc;
+  margin-top:2em;
+  padding-top:1em;
+}
+#mainwrapper #comments_wrap form {
+  background:none;
+  border:none;
+  padding:0;
+  margin:0;
+}
 .widget {
   padding-bottom:1px;
   margin-bottom:1em;
@@ -285,6 +330,10 @@ div#mainwrapper { padding-bottom:30px; }
   margin-top:25px;
 }
 #pagination a:last-of-type { float:right; }
+.hero iframe {
+  max-height:342px;
+  min-height:200px;
+}
 .box {
   border:4px solid #d1d3d4;
   border-radius:20px;
@@ -324,27 +373,40 @@ div#mainwrapper { padding-bottom:30px; }
   display:block;
   padding:3px;
   margin-top:15px;
+  border-radius:4px;
 }
 .box .donor_graph .donor_graph_inside {
   width:50%;
-  background:#07b4b1;
+  background:#189bd7;
   height:15px;
+  max-width:100%;
+  border-radius:2px;
+  box-shadow:0 0 5px rgba(0,0,0,0.3) inset;
 }
 .box .donor_stats {
-  line-height:20px;
+  line-height:35px;
   vertical-align:middle;
   border:2px solid #bbb;
   border-width:2px 0;
   padding:8px 0;
-  margin:60px 0 15px;
+  margin:40px 0 15px;
+  text-align:center;
 }
 .box .donor_stats .num {
   font-weight:bold;
   vertical-align:middle;
-  font-size:30px;
+  font-size:35px;
   color:#07b4b1;
   font-family:Rockwell;
 }
+.box .donor_endDate {
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:30px;
+  color:#07b4b1;
+  text-align:center;
+}
+.box .donor_endDate span { font-weight:normal; }
 .box .person_brief {
   clear:both;
   display:block;
@@ -390,4 +452,46 @@ div#mainwrapper { padding-bottom:30px; }
   font-size:12px;
   padding:5px 3px;
   line-height:12px;
+}
+@media only screen and (max-width: 767px) {
+  div#mainwrapper { padding-bottom:0px; }
+  #mainheader .grid_6 { width:45%; }
+  #mainheader .grid_6 img { max-width:100%; }
+  #mainheader .grid_6 #crulogo {
+    float:right;
+    width:70px;
+    height:auto;
+  }
+  .social_url { display:none; }
+  #mainnav .grid_12 { margin:0; }
+  #mainfooter #footerlinks ul.links {
+    float:none;
+    display:block;
+    margin-bottom:1.0em;
+    font-size:16px;
+  }
+  #comments_wrap label {
+    display:block;
+    clear:both;
+    font-size:13px;
+    margin-top:5px;
+  }
+  #comments_wrap textarea { width:90%; }
+}
+.blog article {
+  margin-bottom:3em;
+  padding-bottom:2em;
+  border-bottom:1px dashed #999;
+}
+.blog article .meta {
+  margin-top:1em;
+  font-size:12px;
+}
+#sidebar h3.widgettitle {
+  color:#555;
+  margin-bottom:.5em;
+}
+#sidebar .widget {
+  margin-bottom:2em;
+  font-size:12px;
 }

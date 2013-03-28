@@ -4,16 +4,18 @@
 
 </div><!-- close #masterwrapper -->
 
-
+<?php if (is_front_page()) : ?>
 <div id="comments_wrap">
   <div class="row">
-    <div class="grid_12">
-      <!-- ------------------------------------------------------------------------- -->
+    <div class="grid_8">
       <?php comments_template(); ?>
+    </div>
+    <div class="grid_4">
+      &nbsp;
     </div>
   </div>
 </div>
-
+<?php endif; ?>
 
 <footer id="mainfooter">
   <div class="row">
@@ -25,28 +27,28 @@
           <li><a href="https://sp.campuscrusadeforchrist.com/apply">Log In</a></li> 
         </ul>
         <ul class="links">
-          <li class="head"><a href="/what-is-a-summer-project">What is a Summer Project</a></li>
-          <li><a href="/what-is-a-summer-project/us-summer-projects">US</a></li>
-          <li><a href="/what-is-a-summer-project/international-summer-projects">International</a></li>
-          <li><a href="/#downloads">Photos</a></li>
-          <li><a href="/#stories">Student Stories</a></li>
+          <li class="head"><a href="http://www.gosummerproject.com/what-is-a-summer-project">What is a Summer Project</a></li>
+          <li><a href="http://www.gosummerproject.com/what-is-a-summer-project/us-summer-projects">US</a></li>
+          <li><a href="http://www.gosummerproject.com/what-is-a-summer-project/international-summer-projects">International</a></li>
+          <li><a href="http://www.gosummerproject.com/#downloads">Photos</a></li>
+          <li><a href="http://www.gosummerproject.com/#stories">Student Stories</a></li>
         </ul>
         <ul class="links">
-          <li class="head"><a href="/#decision">Resources</a></li>
-          <li><a href="/guide">Guide</a></li>
-          <li><a href="/accepted">Raising Funds</a></li>
-          <li><a href="/parents">Parents</a></li>
-          <li><a href="/faq">FAQ</a></li>
+          <li class="head"><a href="http://www.gosummerproject.com/#decision">Resources</a></li>
+          <li><a href="http://www.gosummerproject.com/guide">Guide</a></li>
+          <li><a href="http://www.gosummerproject.com/accepted">Raising Funds</a></li>
+          <li><a href="http://www.gosummerproject.com/parents">Parents</a></li>
+          <li><a href="http://www.gosummerproject.com/faq">FAQ</a></li>
         </ul>
         <ul class="links">
-          <li class="head"><a href="/#connect">Social Media</a></li>
+          <li class="head"><a href="http://www.gosummerproject.com/#connect">Social Media</a></li>
           <li><a href="http://www.facebook.com/summerproject">Facebook</a></li>
           <li><a href="https://twitter.com/gosummerproject">Twitter</a></li>
           <li><a href="http://gosummerproject.tumblr.com/">Tumblr</a></li>
         </ul>
         <ul class="links">
-          <li class="head"><a href="/contact">Contact</a></li>
-          <li><a href="/about-cru">About Cru</a></li>
+          <li class="head"><a href="http://www.gosummerproject.com/contact">Contact</a></li>
+          <li><a href="http://www.gosummerproject.com/about-cru">About Cru</a></li>
         </ul>
   	  </div>
     

@@ -1,8 +1,9 @@
 <?php get_header() ?>
 
     <header class="pageheader">
-      <h1 class="pagetitle"><?php the_title(); ?></h1>
-      <?php affari_the_breadcrumb(); ?>
+    <?php //affari_the_breadcrumb(); ?>
+      <h1 class="pagetitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+      
     </header>
 
     <div class="row">
@@ -11,6 +12,21 @@
         <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
           <?php the_content(); ?>
         </article>
+        
+        <div id="comments_wrap">
+          <div class="row">
+            <div class="grid_8">
+              <!-- ------------------------------------------------------------------------- -->
+              <?php comments_template(); ?>
+            </div>
+            <div class="grid_4">
+              &nbsp;
+            </div>
+          </div>
+        </div>
+        
+        
+        
 <?php endwhile; else: endif; ?>
       </div>
       <div class="grid_4">
