@@ -11,6 +11,9 @@
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <!-- <meta name="viewport" content="width=1040,maximum-scale=5" /> -->
+  <meta content="True" name="HandheldFriendly">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <meta name="viewport" content="width=device-width">
   <title>
       <?php 
          the_title();
@@ -24,8 +27,15 @@
 
 <!-- WP HEAD INFO -->
 <?php wp_enqueue_script("jquery"); ?>
-<script src="<?php bloginfo('template_url'); ?>/js/facebook_user_id.js" type="text/javascript"></script>
 <?php wp_head(); ?>
+<script src="<?php bloginfo('template_url'); ?>/js/facebook_user_id.js" type="text/javascript"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/jquery.mobilemenu.js"></script>
+<script>
+	jQuery(document).ready(function(){
+		jQuery('.menu ul').mobileMenu({prependTo: '#mobilenav'});
+	});
+</script>
+
 <!-- END WP HEAD INFO -->
 
 
@@ -52,7 +62,8 @@
   <nav id="mainnav" role="navigation">
     <div class="row">
       <div class="grid_12">
-        <?php wp_nav_menu(); echo "\n"; ?>
+        <div id="mobilenav"></div>
+        <?php wp_nav_menu(array('container_id' => 'bigone', 'container' => 'div')); ?>
       </div>
     </div>
   </nav>

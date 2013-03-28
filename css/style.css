@@ -247,6 +247,7 @@ div#mainwrapper { padding-bottom:30px; }
 #comments_wrap ol.commentlist li.comment .commentmetadata { display:inline; }
 #comments_wrap ol.commentlist li.comment .commentmetadata a { color:#000; }
 #comments_wrap ol.commentlist li.comment .reply { display:none; }
+#comments_wrap ol.commentlist li:last-child { margin-bottom:0px; }
 #comments_wrap form {
   text-indent:0px;
   clear:both;
@@ -427,6 +428,7 @@ div#mainwrapper { padding-bottom:30px; }
   font-family:"Rockwell";
   margin-bottom:8px;
   line-height:21px;
+  display:block;
 }
 .box .person_bio { font-size:13px; }
 .box .person_bio pre {
@@ -453,31 +455,6 @@ div#mainwrapper { padding-bottom:30px; }
   padding:5px 3px;
   line-height:12px;
 }
-@media only screen and (max-width: 767px) {
-  div#mainwrapper { padding-bottom:0px; }
-  #mainheader .grid_6 { width:45%; }
-  #mainheader .grid_6 img { max-width:100%; }
-  #mainheader .grid_6 #crulogo {
-    float:right;
-    width:70px;
-    height:auto;
-  }
-  .social_url { display:none; }
-  #mainnav .grid_12 { margin:0; }
-  #mainfooter #footerlinks ul.links {
-    float:none;
-    display:block;
-    margin-bottom:1.0em;
-    font-size:16px;
-  }
-  #comments_wrap label {
-    display:block;
-    clear:both;
-    font-size:13px;
-    margin-top:5px;
-  }
-  #comments_wrap textarea { width:90%; }
-}
 .blog article {
   margin-bottom:3em;
   padding-bottom:2em;
@@ -494,4 +471,58 @@ div#mainwrapper { padding-bottom:30px; }
 #sidebar .widget {
   margin-bottom:2em;
   font-size:12px;
+}
+@media only screen and (max-width: 767px) {
+  div#mainwrapper { padding-bottom:0px; }
+  .row, .row .row { overflow:visible; }
+  .row .grid_8, .row .row .grid_8 { overflow:visible; }
+  header.pageheader h1.project_title {
+    line-height:110%;
+    margin-bottom:.5em;
+  }
+  header.pageheader h1.project_title br { display:none; }
+  header.pageheader h1.project_title span { display:none; }
+  .box .person_brief .person_name { padding-top:4px; }
+  #mainheader .grid_6 { width:45%; }
+  #mainheader .grid_6 img { max-width:100%; }
+  #mainheader .grid_6 #crulogo {
+    float:right;
+    width:70px;
+    height:auto;
+  }
+  .social_url { display:none; }
+  nav#mainnav {
+    background:#eee;
+    height:50px;
+    line-height:50px;
+    margin-bottom:20px;
+  }
+  nav#mainnav #mobilenav select {
+    width:100%;
+    background:#fff;
+    border:1px solid #fff;
+  }
+  .grid_12 {
+    margin:0;
+    margin-top:0px !important;
+    overflow:visible;
+  }
+  #mainfooter #footerlinks ul.links {
+    float:none;
+    display:block;
+    margin-bottom:1.0em;
+    font-size:16px;
+  }
+  #comments_wrap label {
+    display:block;
+    clear:both;
+    font-size:13px;
+    margin-top:5px;
+  }
+  #comments_wrap textarea { width:90%; }
+  .hero { margin:0 -16px; }
+  .hero iframe {
+    height:315px;
+    width:100%;
+  }
 }

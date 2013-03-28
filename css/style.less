@@ -257,6 +257,9 @@ div#mainwrapper {
         display: none;
       }
     }
+    li:last-child {
+      margin-bottom: 0px;
+    }
   }
   form {
     text-indent: 0px;
@@ -442,6 +445,7 @@ div#mainwrapper {
       font-family: "Rockwell";
       margin-bottom: 8px;
       line-height: 21px;
+      display: block;
     }
     .person_subtext {}
   }
@@ -475,11 +479,56 @@ div#mainwrapper {
   }
 }
 
+.blog {
+  article {
+    margin-bottom: 3em;
+    padding-bottom: 2em;
+    border-bottom: 1px dashed #999;
+    .meta {
+      margin-top: 1em;
+      font-size: 12px;
+    }
+  }
+}
 
+#sidebar {
+  h3.widgettitle {
+    color: #555;
+    margin-bottom: .5em;
+  }
+  .widget {
+    margin-bottom: 2em;
+    font-size: 12px;
+  }
+}
 
 @media only screen and (max-width: 767px) {
   div#mainwrapper {
     padding-bottom: 0px;
+  }
+  .row,
+  .row .row {
+    overflow: visible;
+    .grid_8 {
+      overflow: visible;
+    }
+  }
+  header.pageheader {
+    h1.project_title {
+      line-height: 110%;
+      margin-bottom: .5em;
+      br {display: none;}
+      span {
+        display: none;
+      }
+    }
+  }
+  .box {
+    .person_brief {
+      .person_name {
+        padding-top: 4px;
+      }
+    }
   }
   #mainheader {
     .grid_6 {
@@ -497,10 +546,24 @@ div#mainwrapper {
   .social_url {
     display: none;
   }
-  #mainnav {
-    .grid_12 {
-      margin: 0;
+  nav#mainnav {
+    background: #eee;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    #mobilenav {
+      select {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #fff;
+      }
     }
+  }
+  
+  .grid_12 {
+    margin: 0;
+    margin-top: 0px !important;
+    overflow: visible;
   }
   #mainfooter {
   
@@ -524,27 +587,12 @@ div#mainwrapper {
       width: 90%;
     }
   }
-}
-
-.blog {
-  article {
-    margin-bottom: 3em;
-    padding-bottom: 2em;
-    border-bottom: 1px dashed #999;
-    .meta {
-      margin-top: 1em;
-      font-size: 12px;
+  .hero {
+    margin: 0 -16px;
+    iframe {
+      height: 315px;
+      width: 100%;
     }
   }
 }
 
-#sidebar {
-  h3.widgettitle {
-    color: #555;
-    margin-bottom: .5em;
-  }
-  .widget {
-    margin-bottom: 2em;
-    font-size: 12px;
-  }
-}
