@@ -1,6 +1,7 @@
 <?php get_header() ?>
 
 
+<?php if(empty($_GET['thanks'])) { ?>
 <div class="row">
   <div class="grid_12">
     <header class="pageheader">
@@ -15,9 +16,11 @@
     </header>
   </div>
 </div>
+<?php } ?>
+
 <div class="row">
-  
-  
+
+
   <!--
     spkick_goal
     spkick_current_amount
@@ -29,30 +32,81 @@
     spkick_designation
     spkick_motivation
   -->
-  
-  
+
+  <?php if(!empty($_GET['thanks'])) { ?>
+    <div class="grid_12">
+      <article class="thankyou">
+        <h1>
+          Thank you!
+        </h1>
+        <p>
+
+          Your generous donation will go a long way in making a
+          difference in the lives of those I am able to share the
+          gospel with.
+
+        </p>
+        <p>
+          Sincerely,<br/>
+          <?php echo of_get_option('spkick_person_name', 'Not Set'); ?>
+
+        </p>
+        <p>
+          &nbsp;
+        </p>
+
+        <div class="social_bar">
+          <div class="social_links">
+
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            </div>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-514fdf491f764030"></script>
+            <!-- AddThis Button END -->
+
+          </div>
+          <div class="social_url">
+            <?php echo get_site_url(); ?>
+          </div>
+        </div>
+        <?php the_content(); ?>
+      </article>
+    </div>
+  <?php } else { ?>
   <div class="grid_8">
 
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
       <div class="hero">
       <?php if (of_get_option('spkick_video_url', 'Not Set')) : ?>
-        <iframe width="100%" height="100%" src="<?php echo of_get_option('spkick_video_url', 'Not Set'); ?>" frameborder="0" allowfullscreen></iframe>
+        <?php echo parse_youtube_url(of_get_option('spkick_video_url', 'Not Set'),'embed'); ?>
+        <!-- <iframe width="100%" height="100%" src="<?php echo of_get_option('spkick_video_url', 'Not Set'); ?>" frameborder="0" allowfullscreen></iframe> -->
       <?php elseif (of_get_option('spkick_project_image', 'Not Set')) : ?>
-        <?php 
+        <?php
           $img_url = of_get_option('spkick_project_image', 'Not Set');
           $img_id = get_image_id($img_url);
           echo wp_get_attachment_image( $img_id, 'project_image' )
         ?>
       <?php else: ?>
-        <img src="" />
+        <div class="nohero">
+        Please upload an Image or YouTube video.
+        </div>
       <?php endif; ?>
-        
-        
+
+
+      </div>
+
+      <div class="social_share">
+        <form action="https://twitter.com/share">
+        <textarea class="tweetcnt" name="text" >I&#039;m following Christ wherever He leads!  #CruPledge </textarea>
+        <button class="tweetbtn" type="submit">Donate this tweet :)</button>
+        </form>
       </div>
       <div class="social_bar">
         <div class="social_links">
-          
+
           <!-- AddThis Button BEGIN -->
           <div class="addthis_toolbox addthis_default_style">
           <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -60,7 +114,7 @@
           </div>
           <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-514fdf491f764030"></script>
           <!-- AddThis Button END -->
-          
+
         </div>
         <div class="social_url">
           <?php echo get_site_url(); ?>
@@ -70,29 +124,28 @@
     </article>
     <?php endwhile; else: endif; ?>
   </div>
-  
-  
-  
-  
+
+
+
+
   <div class="grid_4">
     <div class="box legend">
       <div class="box_interior">
-        <h2 class="price">$<?php echo of_get_option('spkick_goal', 'Not Set'); ?></h2>
+        <h2 class="price">$<?php echo number_format(of_get_option('spkick_current_amount', 'Not Set')) ?></h2>
         <span class="price_subtext">
-          raised of 
-          $<?php echo of_get_option('spkick_goal', 'Not Set'); ?> goal
+          raised of $<?php echo number_format(of_get_option('spkick_goal')) ?> goal
         </span>
-        
+
         <div class="donor_graph">
-          <?php 
+          <?php
             $g1 = of_get_option('spkick_current_amount', 'Not Set');
             $g2 = of_get_option('spkick_goal', 'Not Set');
             $amt = ($g1 / $g2) * 100;
           ?>
           <div class="donor_graph_inside" style="width: <?php echo $amt; ?>%"></div>
         </div>
-        
-        
+
+
         <div class="donor_stats">
           <span class="num">
             <?php
@@ -108,16 +161,20 @@
           <?php echo date("F j, Y", strtotime(of_get_option('spkick_deadline'))); ?>
           <?php //echo of_get_option('spkick_deadline'); ?>
         </div>
-        
+
         <div class="cta">
           <a id="donatecta" href="">Donate!</a>
           <script>
             jQuery(document).ready(function() {
               jQuery('#donatecta').click(function() {
-                var ctaone = 'http://give.cru.org/give/EasyCheckout1/process/singleGift?&Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&id_type=facebook&id_value=';
-                var ctatwo = '&URL=http://mhub.cc/thanks'
-                var newcta = ctaone + facebook_user_id + ctatwo;
-                jQuery("#donatecta").prop("href", newcta);
+                var cta = 'http://give-brandedtest.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/?thanks=yes&ForceRedirect=true&CallbackUrl=';
+                cta = cta + '<?php echo get_site_url(); ?>/';
+                //cta = cta + 'http://git.26am.com:7880/';
+
+                if(facebook_user_id) {
+                  cta = cta + '&id_type=facebook&id_value=' + facebook_user_id;
+                }
+                jQuery("#donatecta").prop("href", cta);
               });
             });
           </script>
@@ -128,7 +185,7 @@
       <div class="box_interior">
         <div class="person_brief">
           <span class="person_image">
-          <?php 
+          <?php
             $img_url = of_get_option('spkick_person_image', 'Not Set');
             $img_id = get_image_id($img_url);
             echo wp_get_attachment_image( $img_id, 'square' )
@@ -143,9 +200,10 @@
       </div>
     </div>
   </div>
+  <?php } ?>
 
+</div>
 
-  
 
 
 <?php get_footer() ?>
