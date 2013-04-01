@@ -145,22 +145,31 @@
           <div class="donor_graph_inside" style="width: <?php echo $amt; ?>%"></div>
         </div>
 
+        <?php
+         $now = time(); // or your date as well
+         $your_date = strtotime(of_get_option('spkick_deadline', 'Not Set'));
+         if ($your_date > 0) {
+           $datediff = $your_date - $now;
+           if ($datediff > 0) {
+             $days_left = floor($datediff/(60*60*24));
+           } else {
+             $days_left = 0;
+           }
+           ?>
 
-        <div class="donor_stats">
-          <span class="num">
-            <?php
-             $now = time(); // or your date as well
-             $your_date = strtotime(of_get_option('spkick_deadline', 'Not Set'));
-             $datediff = $your_date - $now;
-             echo floor($datediff/(60*60*24));
-            ?>
-          </span> days left
-        </div>
-        <div class="donor_endDate">
-          <span>Goal Date</span>
-          <?php echo date("F j, Y", strtotime(of_get_option('spkick_deadline'))); ?>
-          <?php //echo of_get_option('spkick_deadline'); ?>
-        </div>
+
+          <div class="donor_stats">
+            <span class="num"><?php echo $days_left ?></span> days left
+          </div>
+          <div class="donor_endDate">
+            <span>Goal Date</span>
+            <?php echo date("F j, Y", strtotime(of_get_option('spkick_deadline'))); ?>
+            <?php //echo of_get_option('spkick_deadline'); ?>
+          </div>
+
+        <?php
+          }
+        ?>
 
         <div class="cta">
           <a id="donatecta" href="">Donate!</a>
