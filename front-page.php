@@ -98,12 +98,6 @@
 
       </div>
 
-      <div class="social_share">
-        <form action="https://twitter.com/share">
-        <textarea class="tweetcnt" name="text" >I&#039;m following Christ wherever He leads!  #CruPledge </textarea>
-        <button class="tweetbtn" type="submit">Donate this tweet :)</button>
-        </form>
-      </div>
       <div class="social_bar">
         <div class="social_links">
 
