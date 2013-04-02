@@ -1,7 +1,9 @@
 <?php
-  // include "lessc.inc.php";
-  // try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
-	// catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
+  
+  include "lessc.inc.php";
+  try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
+  catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
+  
 	
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
 	

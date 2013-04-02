@@ -67,7 +67,7 @@ a {
 }
 a:hover { text-decoration:underline; }
 strong { font-weight:700; }
-small { font-size:.85em; }
+small, .small { font-size:.85em; }
 address {
   font-style:inherit;
   display:inline;
@@ -330,14 +330,6 @@ div#mainwrapper article.thankyou h1 { font-size:30px; }
 }
 .aligncenter { margin:0 auto; }
 .center { text-align:center; }
-#searchform #s {
-  -moz-transition:width 400ms;
-  -webkit-transition:width 400ms;
-  -ms-transition:width 400ms;
-  -o-transition:width 400ms;
-  transition:width 400ms;
-}
-#searchform #s:focus { width:150%; }
 #pagination {
   padding:25px 0;
   border-top:#808080 1px solid;
@@ -517,17 +509,32 @@ div#mainwrapper article.thankyou h1 { font-size:30px; }
   padding-bottom:2em;
   border-bottom:1px dashed #999;
 }
-.blog article .meta {
+article .meta {
   margin-top:1em;
   font-size:12px;
 }
 #sidebar h3.widgettitle {
   color:#555;
   margin-bottom:.5em;
+  padding-bottom:.5em;
+  border-bottom:1px dashed #999;
 }
 #sidebar .widget {
   margin-bottom:2em;
   font-size:12px;
+}
+#sidebar .widget_search label {
+  color:#555;
+  margin-bottom:.5em;
+  padding-bottom:.5em;
+  border-bottom:1px dashed #999;
+  display:none;
+}
+#sidebar .widget_search input[type=text] {
+  display:inline-block;
+  border:1px solid #999;
+  padding:4px;
+  margin-right:4px;
 }
 @media only screen and (max-width: 974px) {
   div#mainwrapper { padding-bottom:0px; }
