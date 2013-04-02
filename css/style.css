@@ -173,7 +173,20 @@ nav#mainnav ul > li ul.sub-menu li a {
 }
 nav#mainnav ul > li ul.sub-menu li a:hover { background-color:; }
 nav#mainnav ul > li:last-of-type { border-right-width:1px; }
+nav#mainnav.empty {
+  background:url(../images/ribbon_skinny.jpg) repeat-x;
+  height:54px;
+  line-height:54px;
+  margin-bottom:20px;
+}
+nav#mainnav.empty .row { display:none; }
+nav#mainnav.empty #mobilenav { display:none; }
 div#mainwrapper { padding-bottom:30px; }
+div#mainwrapper article img {
+  max-width:100%;
+  height:auto;
+}
+div#mainwrapper article.thankyou h1 { font-size:30px; }
 #mainfooter {
   background:url(../images/ribbon_skinny.jpg) repeat-x;
   padding-top:84px;
@@ -335,6 +348,18 @@ div#mainwrapper { padding-bottom:30px; }
   max-height:342px;
   min-height:200px;
 }
+.hero img.attachment-project_image {
+  max-width:100%;
+  height:auto;
+}
+.nohero {
+  background:#999;
+  color:#fff;
+  font-size:12px;
+  text-align:center;
+  line-height:370px;
+  height:370px;
+}
 .box {
   border:4px solid #d1d3d4;
   border-radius:20px;
@@ -454,6 +479,38 @@ div#mainwrapper { padding-bottom:30px; }
   font-size:12px;
   padding:5px 3px;
   line-height:12px;
+  overflow:hidden;
+}
+.share_box {
+  background:#fff;
+  height:125px;
+  padding:100px 20px 10px 20px;
+  text-align:center;
+}
+.share_box.twitter { background:rgba(255,255,255,0.6) url(../images/social_twitter.png) no-repeat 50% 13%; }
+.share_box.twitter textarea {
+  width:90%;
+  height:50px;
+  margin-bottom:10px;
+}
+.share_box.twitter button {
+  width:200px;
+  height:42px;
+  line-height:42px;
+  border:none;
+  color:#fff;
+  text-align:center;
+  margin:0 auto;
+  margin-top:0px;
+  background:orange;
+  font-weight:bold;
+  font-size:18px;
+  text-transform:uppercase;
+  display:block;
+}
+.share_box.fb {
+  background:rgba(255,255,255,0.6) url(../images/social_fb.png) no-repeat 50% 13%;
+  margin-bottom:30px;
 }
 .blog article {
   margin-bottom:3em;
@@ -472,7 +529,7 @@ div#mainwrapper { padding-bottom:30px; }
   margin-bottom:2em;
   font-size:12px;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 974px) {
   div#mainwrapper { padding-bottom:0px; }
   .row, .row .row { overflow:visible; }
   .row .grid_8, .row .row .grid_8 { overflow:visible; }
@@ -483,6 +540,7 @@ div#mainwrapper { padding-bottom:30px; }
   header.pageheader h1.project_title br { display:none; }
   header.pageheader h1.project_title span { display:none; }
   .box .person_brief .person_name { padding-top:4px; }
+  #mainheader .cruright { float:right; }
   #mainheader .grid_6 { width:45%; }
   #mainheader .grid_6 img { max-width:100%; }
   #mainheader .grid_6 #crulogo {
@@ -520,7 +578,6 @@ div#mainwrapper { padding-bottom:30px; }
     margin-top:5px;
   }
   #comments_wrap textarea { width:90%; }
-  .hero { margin:0 -16px; }
   .hero iframe {
     height:315px;
     width:100%;

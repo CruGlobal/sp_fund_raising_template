@@ -19,6 +19,56 @@ remove_action('wp_head', 'wp_generator');
 
 
 
+/*
+$post_id - The ID of the post you'd like to change.
+$status -  The post status publish|pending|draft|private|static|object|attachment|inherit|future|trash.
+*/
+function change_post_status($post_id,$status){
+    $current_post = get_post( $post_id, 'ARRAY_A' );
+    $current_post['post_status'] = $status;
+    wp_update_post($current_post);
+}
+
+// check for default content
+function first_run_options() {
+  $check = get_option('theme_name_activation_check');
+  if ( $check != "set" ) {
+    $post = array(
+      'post_author' => get_current_user_id(),
+      'post_content' => 'Blog Holder',
+      'post_name' =>  'Blog',
+      'post_status' => 'publish',
+      'post_title' => 'Blog',
+      'post_type' => 'page',
+      'post_parent' => 0,
+      'menu_order' => 0,
+      'to_ping' =>  '',
+      'pinged' => '',
+    );
+    wp_insert_post($post);
+    add_option('theme_name_activation_check', "set");
+    
+    $blog = get_page_by_title('Blog Homepage');
+    update_option( 'page_for_posts', $blog->ID );
+    
+    if(get_page_by_title('Calendar')) {change_post_status(6,'draft');};
+    if(get_page_by_title('Message Board')) {change_post_status(4,'draft');};
+    if(get_page_by_title('Prayer Center')) {change_post_status(5,'draft');};
+    if(get_page_by_title('Resource Center')) {change_post_status(7,'draft');};
+    if(get_page_by_title('Sample Page')) {};
+    
+    if(get_page_by_title('Sample Page')) {
+      $sample = get_page_by_title( 'Sample Page' );
+      update_option( 'page_on_front', $sample->ID );
+      update_option( 'show_on_front', 'page' );
+    }
+    
+    
+  }
+}
+add_action('wp_head', 'first_run_options');
+
+
 // add widget areas
 function affari_widgets_init() {
 	register_sidebar( array(

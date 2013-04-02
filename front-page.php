@@ -55,23 +55,23 @@
           &nbsp;
         </p>
 
-        <div class="social_bar">
-          <div class="social_links">
-
-            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style">
-            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-            <a class="addthis_button_tweet"></a>
+        <div class="social_share">
+          <div class="row">
+            <div class="grid_6">
+              <div class="share_box twitter">
+                <form action="https://twitter.com/intent/tweet">
+                  <textarea class="tweetcnt" name="text">I just gave to help #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_person_name', 'Not Set')); ?> go on a Summer Project to #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_tripname', 'Not Set')); ?>. Join the team: <?php echo get_site_url(); ?></textarea>
+                  <button class="tweetbtn" type="submit">Tweet This</button>
+                </form>
+              </div>
             </div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-514fdf491f764030"></script>
-            <!-- AddThis Button END -->
-
-          </div>
-          <div class="social_url">
-            <?php echo get_site_url(); ?>
+            <div class="grid_6">
+              <div class="share_box fb">
+                <div class="fb-like" data-href="<?php echo get_site_url(); ?>" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false" data-font="arial" data-action="recommend"></div>
+              </div>
+            </div>
           </div>
         </div>
-        <?php the_content(); ?>
       </article>
     </div>
   <?php } else { ?>

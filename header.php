@@ -1,7 +1,7 @@
 <?php
-  include "lessc.inc.php";
-  try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
-	catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
+  // include "lessc.inc.php";
+  // try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
+	// catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
 	
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
 	
@@ -38,10 +38,30 @@
 
 <!-- END WP HEAD INFO -->
 
+<?php
+  $img_url = of_get_option('spkick_project_image', 'Not Set');
+  $img_id = get_image_id($img_url);
+?>
+
+<meta property="og:image" content="<?php echo $img_url; ?>" /> 
+<meta property="og:site_name" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" /> 
+<meta property="og:title" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" /> 
+<meta property="og:url" content="<?php echo get_site_url(); ?>" /> 
+<meta property="og:description" content="I just gave to help <?php echo of_get_option('spkick_person_name', 'Not Set'); ?> go on a Summer Project to <?php echo of_get_option('spkick_tripname', 'Not Set'); ?>. Join the team" /> 
+<meta property="og:type" content="website" /> 
 
 </head>
 
 <body id="<?php echo $post->post_name; ?>" <?php body_class(); ?>>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=58248234608";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="masterwrapper" class="<?php affari_pushed(true); ?>">
 
   <header id="mainheader">
@@ -51,19 +71,28 @@
           <a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
         </div>
       </div>
-      <div class="grid_6">
+      <div class="grid_6 cruright">
         <div id="crulogo">
           <a href="http://www.cruoncampus.org/" target="_blank>"><img src="<?php bloginfo('template_url'); ?>/images/crulogo.png" alt="Cru" /></a>
         </div>
       </div>
     </div>
   </header>
-  
-  <nav id="mainnav" role="navigation">
+  <?php
+    $count_pages = wp_count_posts('page');
+    $published_pages = $count_pages->publish;
+    
+    $count_posts = wp_count_posts('post');
+    $published_posts = $count_posts->publish;
+    
+  ?>
+  <nav id="mainnav" role="navigation"
+    <?php if(($published_pages >= 1) || ($published_posts >= 1)) :?><?php else: ?> class="empty"<?php endif; ?>
+  >
     <div class="row">
       <div class="grid_12">
         <div id="mobilenav"></div>
-        <?php wp_nav_menu(array('container_id' => 'bigone', 'container' => 'div')); ?>
+        <?php wp_nav_menu(array()); ?>
       </div>
     </div>
   </nav>

@@ -4,7 +4,8 @@
 
 </div><!-- close #masterwrapper -->
 
-<?php if (is_front_page()) : ?>
+<?php if (is_front_page()) { ?>
+<?php if(empty($_GET['thanks'])) { ?>
 <div id="comments_wrap">
   <div class="row">
     <div class="grid_8">
@@ -15,7 +16,8 @@
     </div>
   </div>
 </div>
-<?php endif; ?>
+<?php } ?>
+<?php } ?>
 
 <footer id="mainfooter">
   <div class="row">
