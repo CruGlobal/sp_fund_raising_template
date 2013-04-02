@@ -1,8 +1,8 @@
 <?php
   
-  include "lessc.inc.php";
-  try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
-  catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
+  //include "lessc.inc.php";
+  //try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
+  //catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
   
 	
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
@@ -94,7 +94,33 @@
     <div class="row">
       <div class="grid_12">
         <div id="mobilenav"></div>
-        <?php wp_nav_menu(array()); ?>
+        <?php 
+          $theme_location = 'main';
+          $theme_locations = get_nav_menu_locations();
+          $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );  
+        ?>
+          
+        <?php if ($menu_obj->count > 0) { ?>
+          <div class="menu">
+            <ul>
+              <?php wp_nav_menu(array('theme_location'  => 'main', 'items_wrap' => '%3$s', 'container' => false, 'fallback_cb' => false)); ?>
+            </ul>
+          </div>
+        <?php } else { ?>
+          <div class="menu">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
+            </ul> 
+          </div>
+          <?php if ($published_pages < 2) { ?>
+          <script>
+            jQuery('#mainnav').addClass('empty');
+          </script>
+          <?php } ?>
+          
+        <?php } ?>
+        
       </div>
     </div>
   </nav>

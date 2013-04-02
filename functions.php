@@ -46,16 +46,29 @@ function first_run_options() {
       'pinged' => '',
     );
     wp_insert_post($post);
+    
+    
+    function for_example() {
+      $my_post = array();
+      $my_post['ID'] = $id;
+      $my_post['post_title'] = 'test';
+
+      wp_update_post( $my_post );
+    	return $id;
+    }
+    add_filter('publish_post', 'for_example');
+    
     add_option('theme_name_activation_check', "set");
     
-    $blog = get_page_by_title('Blog Homepage');
+    $blog = get_page_by_title('Blog');
     update_option( 'page_for_posts', $blog->ID );
     
     if(get_page_by_title('Calendar')) {change_post_status(6,'draft');};
     if(get_page_by_title('Message Board')) {change_post_status(4,'draft');};
     if(get_page_by_title('Prayer Center')) {change_post_status(5,'draft');};
     if(get_page_by_title('Resource Center')) {change_post_status(7,'draft');};
-    if(get_page_by_title('Sample Page')) {};
+    if(get_page_by_title('Blog')) {$blogID=get_page_by_title('Blog');change_post_status($blogID->ID,'draft');};
+    //if(get_page_by_title('Sample Page')) {};
     
     if(get_page_by_title('Sample Page')) {
       $sample = get_page_by_title( 'Sample Page' );
@@ -106,6 +119,8 @@ function affari_widgets_init() {
 }
 add_action('widgets_init', 'affari_widgets_init');
 
+
+register_nav_menu('main', 'Main Navigation');
 
 // add affari_is_subpage() function
 function affari_is_subpage($parent) {

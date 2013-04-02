@@ -436,11 +436,13 @@ div#mainwrapper article.thankyou h1 { font-size:30px; }
   display:inline-block;
   float:left;
   margin:0 10px 10px 0;
+  min-width:85px;
+  min-height:85px;
 }
 .box .person_brief .person_name {
   color:#07b4b1;
-  font-size:20px;
-  padding-top:8px;
+  font-size:18px;
+  padding-top:4px;
   font-weight:bold;
   font-family:"Rockwell";
   margin-bottom:8px;

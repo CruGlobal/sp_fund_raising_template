@@ -132,9 +132,9 @@
 
         <div class="donor_graph">
           <?php
-            $g1 = of_get_option('spkick_current_amount', 'Not Set');
-            $g2 = of_get_option('spkick_goal', 'Not Set');
-            $amt = ($g1 / $g2) * 100;
+            $g1 = of_get_option('spkick_current_amount', '0');
+            $g2 = of_get_option('spkick_goal', '0');
+            if ($g2 == 0) {$amt = 0;} else {$amt = ($g1 / $g2) * 100;}
           ?>
           <div class="donor_graph_inside" style="width: <?php echo $amt; ?>%"></div>
         </div>
