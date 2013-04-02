@@ -7,21 +7,21 @@
 
 /***** Screen 960px *****/
 
-.row 								{ margin:0 auto; width:960px; overflow:hidden; }
+.row 								{ margin:0 auto; width:960px; overflow:visible; }
 .row .row 					{ margin:0 -16px 0 -16px; width:auto; display:inline-block; }
 
-.grid_1							{ width:48px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_2 						{ width:128px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_3 						{ width:208px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_4 						{ width:288px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_5 						{ width:368px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }		
-.grid_6 						{ width:448px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_7 						{ width:528px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_8 						{ width:608px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_9							{ width:688px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_10						{ width:768px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_11						{ width:848px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
-.grid_12						{ width:928px; margin:0 16px 0 16px; overflow:hidden; float:left; display:inline; }
+.grid_1							{ width:48px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_2 						{ width:128px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_3 						{ width:208px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_4 						{ width:288px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_5 						{ width:368px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }		
+.grid_6 						{ width:448px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_7 						{ width:528px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_8 						{ width:608px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_9							{ width:688px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_10						{ width:768px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_11						{ width:848px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
+.grid_12						{ width:928px; margin:0 16px 0 16px; overflow:visible; float:left; display:inline; }
 	
 .offset_1						{ margin-left:96px; }
 .offset_2						{ margin-left:176px; }

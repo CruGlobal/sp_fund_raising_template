@@ -76,6 +76,14 @@ function first_run_options() {
       update_option( 'show_on_front', 'page' );
     }
     
+    // Update post 2
+      $my_post = array();
+      $my_post['ID'] = 2;
+      $my_post['post_title'] = 'My Summer Project';
+      $my_post['post_content'] = 'Edit this content with your summer project details.';
+    
+    // Update the post into the database
+      wp_update_post($my_post);
     
   }
 }

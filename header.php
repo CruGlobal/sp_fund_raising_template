@@ -12,7 +12,6 @@
 <html>
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
-  <!-- <meta name="viewport" content="width=1040,maximum-scale=5" /> -->
   <meta content="True" name="HandheldFriendly">
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <meta name="viewport" content="width=device-width">
@@ -64,7 +63,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div id="masterwrapper" class="<?php affari_pushed(true); ?>">
+<div id="masterwrapper">
 
   <header id="mainheader">
     <div class="row">
@@ -109,7 +108,7 @@
         <?php } else { ?>
           <div class="menu">
             <ul>
-              <li><a href="<?php echo home_url(); ?>">">Home</a></li>
+              <li><a href="<?php echo home_url(); ?>">Home</a></li>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
             </ul> 
           </div>

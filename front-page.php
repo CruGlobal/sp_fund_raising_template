@@ -110,7 +110,7 @@
           <!-- AddThis Button END -->
 
         </div>
-        <div class="social_url">
+        <div class="social_url" style="display: none;">
           <?php echo get_site_url(); ?>
         </div>
       </div>

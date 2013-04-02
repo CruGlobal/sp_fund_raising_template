@@ -72,7 +72,7 @@ function optionsframework_options() {
 		'name' => __('Project Video', 'options_framework_theme'),
 		'desc' => __('A video is cooler than a project image. If you shoot a video of yourself describing your trip, upload it to youtube and paste the url here.', 'options_framework_theme'),
 		'id' => 'spkick_video_url',
-		'std' => 'Enter your YouTube URL',
+		'std' => '',
 		'type' => 'text');
 
 	$options[] = array(
