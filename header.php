@@ -109,7 +109,7 @@
         <?php } else { ?>
           <div class="menu">
             <ul>
-              <li><a href="/">Home</a></li>
+              <li><a href="<?php echo home_url(); ?>">">Home</a></li>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
             </ul> 
           </div>
