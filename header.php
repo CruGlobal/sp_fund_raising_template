@@ -104,7 +104,7 @@
             <ul>
               <li><a href="<?php echo home_url(); ?>">Home</a></li>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
-              <li><a href="" id="topgive">Give</a></li>
+              <li><a href="" id="topgive" class="donatecta" >Give</a></li>
             </ul> 
           </div>
           

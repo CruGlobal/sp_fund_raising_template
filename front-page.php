@@ -7,11 +7,11 @@
     <header class="pageheader">
       <h1 class="project_title">
         <?php //the_title(); ?>
-        <span class="name"><?php echo of_get_option('spkick_person_name', 'Not Set'); ?></span><br/>
-        <?php echo of_get_option('spkick_tripname', 'Not Set'); ?>
+        <span class="name"><?php echo of_get_option('spkick_person_name', ''); ?></span><br/>
+        <?php echo of_get_option('spkick_tripname', ''); ?>
       </h1>
       <h6>
-        <?php echo of_get_option('spkick_description', 'Not Set'); ?>
+        <?php echo of_get_option('spkick_description', ''); ?>
       </h6>
     </header>
   </div>
@@ -48,7 +48,7 @@
         </p>
         <p>
           Sincerely,<br/>
-          <?php echo of_get_option('spkick_person_name', 'Not Set'); ?>
+          <?php echo of_get_option('spkick_person_name', ''); ?>
 
         </p>
         <p>
@@ -60,7 +60,7 @@
             <div class="grid_6">
               <div class="share_box twitter">
                 <form action="https://twitter.com/intent/tweet">
-                  <textarea class="tweetcnt" name="text">I just gave to help #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_person_name', 'Not Set')); ?> go on a Summer Project to #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_tripname', 'Not Set')); ?>. Join the team: <?php echo get_site_url(); ?></textarea>
+                  <textarea class="tweetcnt" name="text">I just gave to help #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_person_name', '')); ?> go on a Summer Project to #<?php echo preg_replace('/\s+/', '', of_get_option('spkick_tripname', '')); ?>. Join the team: <?php echo get_site_url(); ?></textarea>
                   <button class="tweetbtn" type="submit">Tweet This</button>
                 </form>
               </div>
@@ -80,12 +80,12 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
       <div class="hero">
-      <?php if (of_get_option('spkick_video_url', 'Not Set')) : ?>
-        <?php echo parse_youtube_url(of_get_option('spkick_video_url', 'Not Set'),'embed'); ?>
-        <!-- <iframe width="100%" height="100%" src="<?php echo of_get_option('spkick_video_url', 'Not Set'); ?>" frameborder="0" allowfullscreen></iframe> -->
-      <?php elseif (of_get_option('spkick_project_image', 'Not Set')) : ?>
+      <?php if (of_get_option('spkick_video_url', '')) : ?>
+        <?php echo parse_youtube_url(of_get_option('spkick_video_url', ''),'embed'); ?>
+        <!-- <iframe width="100%" height="100%" src="<?php echo of_get_option('spkick_video_url', ''); ?>" frameborder="0" allowfullscreen></iframe> -->
+      <?php elseif (of_get_option('spkick_project_image', '')) : ?>
         <?php
-          $img_url = of_get_option('spkick_project_image', 'Not Set');
+          $img_url = of_get_option('spkick_project_image', '');
           $img_id = get_image_id($img_url);
           echo wp_get_attachment_image( $img_id, 'project_image' )
         ?>
@@ -115,7 +115,7 @@
         </div>
       </div>
       
-      <?php echo of_get_option('spkick_fulldescription', 'Not Set'); ?>
+      <pre><?php echo of_get_option('spkick_fulldescription', ''); ?></pre>
       
       <?php //the_content(); ?>
     </article>
@@ -128,7 +128,7 @@
   <div class="grid_4">
     <div class="box legend">
       <div class="box_interior">
-        <h2 class="price">$<?php echo number_format(of_get_option('spkick_current_amount', 'Not Set')) ?></h2>
+        <h2 class="price">$<?php echo number_format(of_get_option('spkick_current_amount', '')) ?></h2>
         <span class="price_subtext">
           raised of $<?php echo number_format(of_get_option('spkick_goal')) ?> goal
         </span>
@@ -144,7 +144,7 @@
 
         <?php
          $now = time(); // or your date as well
-         $your_date = strtotime(of_get_option('spkick_deadline', 'Not Set'));
+         $your_date = strtotime(of_get_option('spkick_deadline', ''));
          if ($your_date > 0) {
            $datediff = $your_date - $now;
            if ($datediff > 0) {
@@ -169,19 +169,18 @@
         ?>
 
         <div class="cta">
-          <a id="donatecta" href="">Donate!</a>
+          <a id="donatecta" class="donatecta" href="">Donate!</a>
           <script>
             jQuery(document).ready(function() {
-              jQuery('#donatecta').click(function() {
-                var cta = 'http://give-brandedtest.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/?thanks=yes&ForceRedirect=true&CallbackUrl=';
+              jQuery('.donatecta').click(function() {
+                var cta = 'http://give.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/?thanks=yes&ForceRedirect=true&CallbackUrl=';
                 cta = cta + '<?php echo get_site_url(); ?>/';
                 //cta = cta + 'http://git.26am.com:7880/';
 
                 if(facebook_user_id) {
                   cta = cta + '&id_type=facebook&id_value=' + facebook_user_id;
                 }
-                jQuery("#donatecta").prop("href", cta);
-                jQuery("#topgive").prop("href", cta);
+                jQuery(".donatecta").prop("href", cta);
               });
             });
           </script>
@@ -193,15 +192,15 @@
         <div class="person_brief">
           <span class="person_image">
           <?php
-            $img_url = of_get_option('spkick_person_image', 'Not Set');
+            $img_url = of_get_option('spkick_person_image', '');
             $img_id = get_image_id($img_url);
             echo wp_get_attachment_image( $img_id, 'square' )
           ?>
           </span>
-          <span class="person_name"><?php echo of_get_option('spkick_person_name', 'Not Set'); ?></span>
+          <span class="person_name"><?php echo of_get_option('spkick_person_name', ''); ?></span>
         </div>
         <div class="person_bio">
-          <p><pre><?php echo of_get_option('spkick_person_bio', 'Not Set'); ?></pre></p>
+          <p><pre><?php echo of_get_option('spkick_person_bio', ''); ?></pre></p>
         </div>
       </div>
     </div>

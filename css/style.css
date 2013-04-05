@@ -186,6 +186,7 @@ div#mainwrapper article img {
   max-width:100%;
   height:auto;
 }
+div#mainwrapper article pre {font-family: Arial;}
 div#mainwrapper article.thankyou h1 { font-size:30px; }
 #mainfooter {
   background:url(../images/ribbon_skinny.jpg) repeat-x;

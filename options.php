@@ -34,7 +34,7 @@ function optionsframework_options() {
 		
   $options[] = array(
 		'name' => __('Amount Raised', 'options_framework_theme'),
-		'desc' => __('You&rsquo;ll have to manually change this if on a regular basis to account for donations not received through this site', 'options_framework_theme'),
+		'desc' => __('You&rsquo;ll have to manually change this on a regular basis to account for donations not received through this site', 'options_framework_theme'),
 		'id' => 'spkick_current_amount',
 		'std' => '0.00',
 		'class' => 'mini',
@@ -49,15 +49,15 @@ function optionsframework_options() {
 		'type' => 'text');
 
 	$options[] = array(
-		'name' => __('Mission Trip Name', 'options_framework_theme'),
-		'desc' => __('Title of your trip (eg. East Asia Stint)', 'options_framework_theme'),
+		'name' => __('Project Name', 'options_framework_theme'),
+		'desc' => __('Title of your project (eg. East Asia Stint)', 'options_framework_theme'),
 		'id' => 'spkick_tripname',
-		'std' => 'My Summer Mission Trip',
+		'std' => 'My Summer Project',
 		'type' => 'text');
 
 	$options[] = array(
-		'name' => __('Mission Trip Summary', 'options_framework_theme'),
-		'desc' => __('Enter a description of your trip in roughly one paragraph.', 'options_framework_theme'),
+		'name' => __('Project Summary', 'options_framework_theme'),
+		'desc' => __('Enter a description of your project in roughly one paragraph.', 'options_framework_theme'),
 		'id' => 'spkick_description',
 		'std' => "Example: We'll be going to an exciting part of the world to share our faith with students and various faculty. I'm excited at the possibility to share in a language I don't speak",
 		'type' => 'textarea');
@@ -70,7 +70,7 @@ function optionsframework_options() {
 		
   $options[] = array(
 		'name' => __('Project Video', 'options_framework_theme'),
-		'desc' => __('A video is cooler than a project image. If you shoot a video of yourself describing your trip, upload it to youtube and paste the url here.', 'options_framework_theme'),
+		'desc' => __('A video is cooler than a project image. If you shoot a video of yourself describing your project, upload it to youtube and paste the url here.', 'options_framework_theme'),
 		'id' => 'spkick_video_url',
 		'std' => '',
 		'type' => 'text');
