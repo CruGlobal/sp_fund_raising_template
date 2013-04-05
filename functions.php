@@ -36,9 +36,9 @@ function first_run_options() {
     $post = array(
       'post_author' => get_current_user_id(),
       'post_content' => 'Blog Holder',
-      'post_name' =>  'Blog',
+      'post_name' =>  'My Project Blog',
       'post_status' => 'publish',
-      'post_title' => 'Blog',
+      'post_title' => 'My Project Blog',
       'post_type' => 'page',
       'post_parent' => 0,
       'menu_order' => 0,
@@ -80,7 +80,7 @@ function first_run_options() {
       $my_post = array();
       $my_post['ID'] = 2;
       $my_post['post_title'] = 'My Summer Project';
-      $my_post['post_content'] = 'Edit this content with your summer project details.';
+      $my_post['post_content'] = 'Do Not Delete This Page! See Theme Options to Edit.';
     
     // Update the post into the database
       wp_update_post($my_post);

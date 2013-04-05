@@ -34,7 +34,7 @@ function optionsframework_options() {
 		
   $options[] = array(
 		'name' => __('Amount Raised', 'options_framework_theme'),
-		'desc' => __('Enter the amount you&rsquo;ve raised so far', 'options_framework_theme'),
+		'desc' => __('You&rsquo;ll have to manually change this if on a regular basis to account for donations not received through this site', 'options_framework_theme'),
 		'id' => 'spkick_current_amount',
 		'std' => '0.00',
 		'class' => 'mini',
@@ -74,6 +74,14 @@ function optionsframework_options() {
 		'id' => 'spkick_video_url',
 		'std' => '',
 		'type' => 'text');
+		
+	$options[] = array(
+		'name' => __('Full Project Description', 'options_framework_theme'),
+		'desc' => __('Enter a full project description. This is a great way to give details about your project and invite your supporters in with you.', 'options_framework_theme'),
+		'id' => 'spkick_fulldescription',
+		'std' => "Example: We'll be going to an exciting part of the world to share our faith with students and various faculty. I'm excited at the possibility to share in a language I don't speak",
+		'type' => 'textarea');	
+		
 
 	$options[] = array(
 		'name' => __('Your Name', 'options_framework_theme'),
@@ -82,12 +90,14 @@ function optionsframework_options() {
 		'std' => 'Merdigal Magilicutootles',
 		'type' => 'text');
 		
-  $options[] = array(
+  /*
+$options[] = array(
 		'name' => __('Your Occupation', 'options_framework_theme'),
 		'desc' => __('Student? Part-Time Dancer?', 'options_framework_theme'),
 		'id' => 'spkick_person_subtext',
 		'std' => 'Student at Cal State Hayward',
 		'type' => 'text');
+*/
 
   $options[] = array(
 		'name' => __('Your Bio', 'options_framework_theme'),
@@ -101,13 +111,6 @@ function optionsframework_options() {
 		'desc' => __('This will get turned into a square.', 'options_framework_theme'),
 		'id' => 'spkick_person_image',
 		'type' => 'upload');
-		
-
-	$options[] = array(
-		'name' => __('Project Details', 'options_framework_theme'),
-		'desc' => __('The information below is required for your site to work. If you dont have these details, contact your project coordinator to get them.', 'options_framework_theme'),
-		'type' => 'info');
-
 	
 	
 	$options[] = array(
@@ -119,7 +122,7 @@ function optionsframework_options() {
 		'type' => 'text');
 		
   $options[] = array(
-		'name' => __('Motivation Code', 'options_framework_theme'),
+		'name' => __('Campaign Code', 'options_framework_theme'),
 		'desc' => __('', 'options_framework_theme'),
 		'id' => 'spkick_motivation',
 		'std' => '',

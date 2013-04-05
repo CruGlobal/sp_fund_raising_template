@@ -114,7 +114,10 @@
           <?php echo get_site_url(); ?>
         </div>
       </div>
-      <?php the_content(); ?>
+      
+      <?php echo of_get_option('spkick_fulldescription', 'Not Set'); ?>
+      
+      <?php //the_content(); ?>
     </article>
     <?php endwhile; else: endif; ?>
   </div>
@@ -178,6 +181,7 @@
                   cta = cta + '&id_type=facebook&id_value=' + facebook_user_id;
                 }
                 jQuery("#donatecta").prop("href", cta);
+                jQuery("#topgive").prop("href", cta);
               });
             });
           </script>
@@ -195,7 +199,6 @@
           ?>
           </span>
           <span class="person_name"><?php echo of_get_option('spkick_person_name', 'Not Set'); ?></span>
-          <span class="person_subtext"><?php echo of_get_option('spkick_person_subtext', 'Not Set'); ?></span>
         </div>
         <div class="person_bio">
           <p><pre><?php echo of_get_option('spkick_person_bio', 'Not Set'); ?></pre></p>

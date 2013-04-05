@@ -99,27 +99,15 @@
           $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );  
         ?>
           
-        <?php if ($menu_obj->count > 0) { ?>
-          <div class="menu">
-            <ul>
-              <?php wp_nav_menu(array('theme_location'  => 'main', 'items_wrap' => '%3$s', 'container' => false, 'fallback_cb' => false)); ?>
-            </ul>
-          </div>
-        <?php } else { ?>
+          
           <div class="menu">
             <ul>
               <li><a href="<?php echo home_url(); ?>">Home</a></li>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
+              <li><a href="" id="topgive">Give</a></li>
             </ul> 
           </div>
-          <?php if ($published_pages < 2) { ?>
-          <script>
-            jQuery('#mainnav').addClass('empty');
-          </script>
-          <?php } ?>
           
-        <?php } ?>
-        
       </div>
     </div>
   </nav>
