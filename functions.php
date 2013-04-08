@@ -46,8 +46,8 @@ function first_run_options() {
       'pinged' => '',
     );
     wp_insert_post($post);
-    
-    
+
+
     function for_example() {
       $my_post = array();
       $my_post['ID'] = $id;
@@ -57,34 +57,34 @@ function first_run_options() {
     	return $id;
     }
     add_filter('publish_post', 'for_example');
-    
+
     add_option('theme_name_activation_check', "set");
-    
+
     $blog = get_page_by_title('Blog');
     update_option( 'page_for_posts', $blog->ID );
-    
+
     if(get_page_by_title('Calendar')) {change_post_status(6,'draft');};
     if(get_page_by_title('Message Board')) {change_post_status(4,'draft');};
     if(get_page_by_title('Prayer Center')) {change_post_status(5,'draft');};
     if(get_page_by_title('Resource Center')) {change_post_status(7,'draft');};
     if(get_page_by_title('Blog')) {$blogID=get_page_by_title('Blog');change_post_status($blogID->ID,'draft');};
     //if(get_page_by_title('Sample Page')) {};
-    
+
     if(get_page_by_title('Sample Page')) {
       $sample = get_page_by_title( 'Sample Page' );
       update_option( 'page_on_front', $sample->ID );
       update_option( 'show_on_front', 'page' );
     }
-    
+
     // Update post 2
       $my_post = array();
       $my_post['ID'] = 2;
       $my_post['post_title'] = 'My Summer Project';
       $my_post['post_content'] = 'Do Not Delete This Page! See Theme Options to Edit.';
-    
+
     // Update the post into the database
       wp_update_post($my_post);
-    
+
   }
 }
 add_action('wp_head', 'first_run_options');
@@ -199,7 +199,7 @@ if ( function_exists( 'add_image_size' ) ) {
 function get_image_id($image_url) {
     global $wpdb;
     $prefix = $wpdb->prefix;
-    $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='" . $image_url . "';"));
+    $attachment = $wpdb->get_col( $wpdb->prepare( 'SELECT ID FROM ' . $wpdb->posts . ' WHERE guid=%s', $image_url ) );
     return $attachment[0];
 }
 
