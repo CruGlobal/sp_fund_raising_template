@@ -58,16 +58,15 @@ function first_run_options() {
     }
     add_filter('publish_post', 'for_example');
 
-    add_option('theme_name_activation_check', "set");
 
-    $blog = get_page_by_title('Blog');
+    $blog = get_page_by_title('My Project Blog');
     update_option( 'page_for_posts', $blog->ID );
 
     if(get_page_by_title('Calendar')) {change_post_status(6,'draft');};
     if(get_page_by_title('Message Board')) {change_post_status(4,'draft');};
     if(get_page_by_title('Prayer Center')) {change_post_status(5,'draft');};
     if(get_page_by_title('Resource Center')) {change_post_status(7,'draft');};
-    if(get_page_by_title('Blog')) {$blogID=get_page_by_title('Blog');change_post_status($blogID->ID,'draft');};
+    if(get_page_by_title('My Project Blog')) {$blogID=get_page_by_title('My Project Blog');change_post_status($blogID->ID,'draft');};
     //if(get_page_by_title('Sample Page')) {};
 
     if(get_page_by_title('Sample Page')) {
@@ -84,7 +83,8 @@ function first_run_options() {
 
     // Update the post into the database
       wp_update_post($my_post);
-
+      
+    add_option('theme_name_activation_check', "set");
   }
 }
 add_action('wp_head', 'first_run_options');

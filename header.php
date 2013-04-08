@@ -85,11 +85,8 @@
     
     $count_posts = wp_count_posts('post');
     $published_posts = $count_posts->publish;
-    
   ?>
-  <nav id="mainnav" role="navigation"
-    <?php if(($published_pages >= 1) || ($published_posts >= 1)) :?><?php else: ?> class="empty"<?php endif; ?>
-  >
+  <nav id="mainnav" role="navigation">
     <div class="row">
       <div class="grid_12">
         <div id="mobilenav"></div>
@@ -101,8 +98,10 @@
           
           
           <div class="menu">
-            <ul>
+            <ul>              
+              <?php if ($published_pages >= 2): ?>
               <li><a href="<?php echo home_url(); ?>">Home</a></li>
+              <?php endif; ?>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
               <li><a href="" id="topgive" class="donatecta" >Give</a></li>
             </ul> 
