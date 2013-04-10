@@ -59,32 +59,45 @@ function first_run_options() {
     add_filter('publish_post', 'for_example');
 
 
-    $blog = get_page_by_title('My Project Blog');
-    update_option( 'page_for_posts', $blog->ID );
 
-    if(get_page_by_title('Calendar')) {change_post_status(6,'draft');};
-    if(get_page_by_title('Message Board')) {change_post_status(4,'draft');};
-    if(get_page_by_title('Prayer Center')) {change_post_status(5,'draft');};
-    if(get_page_by_title('Resource Center')) {change_post_status(7,'draft');};
-    if(get_page_by_title('My Project Blog')) {$blogID=get_page_by_title('My Project Blog');change_post_status($blogID->ID,'draft');};
-    //if(get_page_by_title('Sample Page')) {};
+    // Update default Blog Homepage
+      $blog = get_page_by_title('My Project Blog');
+      update_option( 'page_for_posts', $blog->ID );
 
-    if(get_page_by_title('Sample Page')) {
+
+    // DEACTIVATE PAGES using titles
+      $page_cal = get_page_by_title('Calendar');
+      $page_board = get_page_by_title('Message Board');
+      $page_prayer = get_page_by_title('Prayer Center');
+      $page_resource = get_page_by_title('Resource Center');
+      $page_blog = get_page_by_title('My Project Blog');
+      
+      
+      if($page_cal) {change_post_status($page_cal->ID,'draft');};
+      if($page_board) {change_post_status($page_board->ID,'draft');};
+      if($page_prayer) {change_post_status($page_prayer->ID,'draft');};
+      if($page_resource) {change_post_status($page_resource->ID,'draft');};
+      if($page_blog) {change_post_status($page_blog->ID,'draft');};
+
+
+    // Set Sample Page to be the Front Page
       $sample = get_page_by_title( 'Sample Page' );
-      update_option( 'page_on_front', $sample->ID );
-      update_option( 'show_on_front', 'page' );
-    }
+      if(get_page_by_title('Sample Page')) {
+        update_option( 'page_on_front', $sample->ID );
+        update_option( 'show_on_front', 'page' );
+      }
 
-    // Update post 2
+    // Update Sample Page Title
       $my_post = array();
-      $my_post['ID'] = 2;
+      $my_post['ID'] = $sample->ID;
       $my_post['post_title'] = 'My Summer Project';
       $my_post['post_content'] = 'Do Not Delete This Page! See Theme Options to Edit.';
 
     // Update the post into the database
       wp_update_post($my_post);
-      
-    add_option('theme_name_activation_check', "set");
+
+    // Set Run Once option to not run again        
+      add_option('theme_name_activation_check', "set");
   }
 }
 add_action('wp_head', 'first_run_options');
