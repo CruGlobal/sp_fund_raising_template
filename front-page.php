@@ -173,9 +173,7 @@
           <script>
             jQuery(document).ready(function() {
               jQuery('.donatecta').click(function() {
-                var cta = 'http://give.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/?thanks=yes&ForceRedirect=true&CallbackUrl=';
-                cta = cta + '<?php echo get_site_url(); ?>/';
-                //cta = cta + 'http://git.26am.com:7880/';
+                var cta = 'http://give.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/?thanks=yes&ForceRedirect=true&CallbackUrl=<?php echo get_site_url(); ?>';
 
                 if(facebook_user_id) {
                   cta = cta + '&id_type=facebook&id_value=' + facebook_user_id;
