@@ -1,22 +1,33 @@
 <?php
-  
+
   //include "lessc.inc.php";
   //try {lessc::ccompile(dirname(__FILE__) . '/css/style.less', dirname(__FILE__) . '/css/style.css');}
   //catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
-  
-	
+
+
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
-	
+
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-325725-32', 'gcx.org');
+    ga('send', 'pageview');
+
+  </script>
+
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta content="True" name="HandheldFriendly">
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <meta name="viewport" content="width=device-width">
   <title>
-      <?php 
+      <?php
          the_title();
       ?>
   </title>
@@ -44,12 +55,12 @@
   $img_id = get_image_id($img_url);
 ?>
 
-<meta property="og:image" content="<?php echo $img_url; ?>" /> 
-<meta property="og:site_name" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" /> 
-<meta property="og:title" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" /> 
-<meta property="og:url" content="<?php echo get_site_url(); ?>" /> 
-<meta property="og:description" content="I just gave to help <?php echo of_get_option('spkick_person_name', 'Not Set'); ?> go on a Summer Project to <?php echo of_get_option('spkick_tripname', 'Not Set'); ?>. Join the team" /> 
-<meta property="og:type" content="website" /> 
+<meta property="og:image" content="<?php echo $img_url; ?>" />
+<meta property="og:site_name" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" />
+<meta property="og:title" content="<?php echo of_get_option('spkick_tripname', 'Not Set'); ?>" />
+<meta property="og:url" content="<?php echo get_site_url(); ?>" />
+<meta property="og:description" content="I just gave to help <?php echo of_get_option('spkick_person_name', 'Not Set'); ?> go on a Summer Project to <?php echo of_get_option('spkick_tripname', 'Not Set'); ?>. Join the team" />
+<meta property="og:type" content="website" />
 
 </head>
 
@@ -82,7 +93,7 @@
   <?php
     $count_pages = wp_count_posts('page');
     $published_pages = $count_pages->publish;
-    
+
     $count_posts = wp_count_posts('post');
     $published_posts = $count_posts->publish;
   ?>
@@ -90,27 +101,27 @@
     <div class="row">
       <div class="grid_12">
         <div id="mobilenav"></div>
-        <?php 
+        <?php
           $theme_location = 'main';
           $theme_locations = get_nav_menu_locations();
-          $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );  
+          $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
         ?>
-          
-          
+
+
           <div class="menu">
-            <ul>              
+            <ul>
               <?php if ($published_pages >= 2): ?>
               <li><a href="<?php echo home_url(); ?>">Home</a></li>
               <?php endif; ?>
               <?php wp_list_pages(array('exclude' => 2, 'title_li' => '')); ?>
               <li><a href="" id="topgive" class="donatecta" >Give</a></li>
-            </ul> 
+            </ul>
           </div>
-          
+
       </div>
     </div>
   </nav>
-  
+
   <div id="mainwrapper">
     <div class="row">
       <div class="grid_12">
