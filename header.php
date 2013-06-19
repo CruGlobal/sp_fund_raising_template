@@ -66,13 +66,26 @@
 
 <body id="<?php echo $post->post_name; ?>" <?php body_class(); ?>>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=58248234608";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=58248234608";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  jQuery(document).ready(function() {
+    jQuery('.donatecta').click(function() {
+      var cta = 'http://give.cru.org/give/EasyCheckout1/process/singleGift?Desig=<?php echo of_get_option('spkick_designation', ''); ?>&Motivation=<?php echo of_get_option('spkick_motivation', ''); ?>&DefaultPaymentType=CC&Theme=mobile&URL=<?php echo get_site_url(); ?>/%3Fthanks=yes&ForceRedirect=true&CallbackUrl=<?php echo get_site_url(); ?>/';
+
+      if(facebook_user_id) {
+        cta = cta + '&id_type=facebook&id_value=' + facebook_user_id;
+      }
+      jQuery(".donatecta").prop("href", cta);
+    });
+  });
+</script>
 
 <div id="masterwrapper">
 
