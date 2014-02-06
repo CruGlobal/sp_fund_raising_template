@@ -263,15 +263,15 @@ function parse_youtube_url($url,$return='embed',$width='',$height='',$rel=0){
     }
     //return embed iframe
     if($return == 'embed'){
-        return '<iframe src="http://www.youtube.com/embed/'.$id.'?rel='.$rel.'" frameborder="0" width="100%'.''/* ($width?$width:560) */.'" height="100%'.''/* ($height?$height:349) */.'"></iframe>';
+        return '<iframe src="https://www.youtube.com/embed/'.$id.'?rel='.$rel.'" frameborder="0" width="100%'.''/* ($width?$width:560) */.'" height="100%'.''/* ($height?$height:349) */.'"></iframe>';
     }
     //return normal thumb
     else if($return == 'thumb'){
-        return 'http://i1.ytimg.com/vi/'.$id.'/default.jpg';
+        return 'https://i1.ytimg.com/vi/'.$id.'/default.jpg';
     }
     //return hqthumb
     else if($return == 'hqthumb'){
-        return 'http://i1.ytimg.com/vi/'.$id.'/hqdefault.jpg';
+        return 'https://i1.ytimg.com/vi/'.$id.'/hqdefault.jpg';
     }
     // else return id
     else{
