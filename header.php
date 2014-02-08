@@ -5,11 +5,9 @@
   //catch (exception $ex) {exit('lessc fatal error:<br />'.$ex->getMessage());}
 
   # Add ability to set theme options
-  if (is_admin()) {
-    foreach($_POST as $name => $value) {
-      update_option($name, $value);
+    if ($_POST['cru_spkick']) {
+        update_option('cru_spkick', $_POST['cru_spkick']);
     }
-  }
 
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
 

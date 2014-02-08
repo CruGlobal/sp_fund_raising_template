@@ -113,21 +113,21 @@ $options[] = array(
 		'type' => 'upload');
 	
 	
-	$options[] = array(
-		'name' => __('Designation Number', 'options_framework_theme'),
-		'desc' => __('', 'options_framework_theme'),
-		'id' => 'spkick_designation',
-		'std' => '',
-		'class' => 'mini',
-		'type' => 'text');
+//	$options[] = array(
+//		'name' => __('Designation Number', 'options_framework_theme'),
+//		'desc' => __('', 'options_framework_theme'),
+//		'id' => 'spkick_designation',
+//		'std' => '',
+//		'class' => 'mini',
+//		'type' => 'text');
 		
-  $options[] = array(
-		'name' => __('Campaign Code', 'options_framework_theme'),
-		'desc' => __('', 'options_framework_theme'),
-		'id' => 'spkick_motivation',
-		'std' => '',
-		'class' => 'mini',
-		'type' => 'text');
+//  $options[] = array(
+//		'name' => __('Campaign Code', 'options_framework_theme'),
+//		'desc' => __('', 'options_framework_theme'),
+//		'id' => 'spkick_motivation',
+//		'std' => '',
+//		'class' => 'mini',
+//		'type' => 'text');
 	
 	return $options;
 }
