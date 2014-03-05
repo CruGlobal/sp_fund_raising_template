@@ -6,7 +6,7 @@
 
   # Add ability to set theme options
     if ($_POST['cru_spkick']) {
-        update_option('cru_spkick', $_POST['cru_spkick']);
+      update_option('cru_spkick', stripslashes_deep($_POST['cru_spkick']));
     }
 
 	if (is_front_page()) {$logotag = "h1";} else {$logotag = "div";}
