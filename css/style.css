@@ -464,6 +464,7 @@ div#mainwrapper article.thankyou h1 { font-size:30px; }
 .social_bar .social_links {
   float:left;
   padding-top:1px;
+  width:200px;
 }
 .social_bar .social_url {
   float:right;
