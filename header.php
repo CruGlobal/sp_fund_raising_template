@@ -97,7 +97,7 @@
     <div class="row">
       <div class="grid_6">
         <div id="logo">
-          <a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+          <a href="<?php echo home_url(); ?>"><img src="http://gosummerproject.com/images/logo.png" width="198" height="94" alt="<?php bloginfo('name'); ?>" /></a>
         </div>
       </div>
       <div class="grid_6 cruright">
