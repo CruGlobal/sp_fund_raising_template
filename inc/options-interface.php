@@ -115,6 +115,11 @@ function optionsframework_fields() {
 			$output .= '<input id="' . esc_attr( $value['id'] ) . '" class="of-input" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" type="password" value="' . esc_attr( $val ) . '" />';
 			break;
 
+		// Hidden input
+		case 'hidden':
+			$output .= '<input id="' . esc_attr( $value['id'] ) . '" class="of-input" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" type="hidden" value="' . esc_attr( $val ) . '" />';
+			break;
+
 		// Textarea
 		case 'textarea':
 			$rows = '8';
