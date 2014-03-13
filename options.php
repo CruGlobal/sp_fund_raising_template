@@ -119,7 +119,7 @@ $options[] = array(
     'id' => 'spkick_designation',
     'std' => '',
     'class' => 'mini',
-    'type' => 'hidden');
+    'type' => 'text');
 
   $options[] = array(
     'name' => __('Campaign Code', 'options_framework_theme'),
@@ -127,7 +127,7 @@ $options[] = array(
     'id' => 'spkick_motivation',
     'std' => '',
     'class' => 'mini',
-    'type' => 'hidden');
+    'type' => 'text');
 
 	return $options;
 }
