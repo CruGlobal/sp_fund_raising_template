@@ -6,7 +6,12 @@
 
   # Add ability to set theme options
     if ($_POST['cru_spkick']) {
-      $new_values = array_merge(get_option('cru_spkick'), stripslashes_deep($_POST['cru_spkick']));
+      $old_values = get_option('cru_spkick');
+      if(is_array($old_values)) {
+        $new_values = array_merge(get_option('cru_spkick'), stripslashes_deep($_POST['cru_spkick']));
+      } else {
+        $new_values = stripslashes_deep($_POST['cru_spkick']);
+      }
       update_option('cru_spkick', $new_values);
     }
 
