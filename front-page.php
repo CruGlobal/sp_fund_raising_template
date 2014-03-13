@@ -128,7 +128,7 @@
   <div class="grid_4">
     <div class="box legend">
       <div class="box_interior">
-        <h2 class="price">$<?php echo number_format(of_get_option('spkick_current_amount', '')) ?></h2>
+        <h2 class="price">$<?php echo number_format(of_get_option('spkick_current_amount', 0)) ?></h2>
         <span class="price_subtext">
           raised of $<?php echo number_format(of_get_option('spkick_goal')) ?> goal
         </span>
