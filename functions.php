@@ -82,19 +82,19 @@ function first_run_options() {
 
     // Set Sample Page to be the Front Page
       $sample = get_page_by_title( 'Sample Page' );
-      if(get_page_by_title('Sample Page')) {
+      if($sample) {
         update_option( 'page_on_front', $sample->ID );
         update_option( 'show_on_front', 'page' );
+
+      // Update Sample Page Title
+        $my_post = array();
+        $my_post['ID'] = $sample->ID;
+        $my_post['post_title'] = 'My Summer Project';
+        $my_post['post_content'] = 'Do Not Delete This Page! See Theme Options to Edit.';
+
+      // Update the post into the database
+        wp_update_post($my_post);
       }
-
-    // Update Sample Page Title
-      $my_post = array();
-      $my_post['ID'] = $sample->ID;
-      $my_post['post_title'] = 'My Summer Project';
-      $my_post['post_content'] = 'Do Not Delete This Page! See Theme Options to Edit.';
-
-    // Update the post into the database
-      wp_update_post($my_post);
 
     // Set Run Once option to not run again        
       add_option('theme_name_activation_check', "set");
