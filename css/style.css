@@ -337,6 +337,9 @@ div#mainwrapper article.thankyou h1 { font-size:30px; }
   margin-top:25px;
 }
 #pagination a:last-of-type { float:right; }
+.hero {
+  height: 100%;
+}
 .hero iframe {
   max-height:342px;
   min-height:200px;
